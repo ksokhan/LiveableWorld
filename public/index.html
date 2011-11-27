@@ -12,7 +12,7 @@
        More info: h5bp.com/b/378 -->
   <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 
-  <title><%= header_title %></title>
+  <title>Liveable World</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -33,18 +33,46 @@
 </head>
 
 <body>
-  <header class="<%= header_class %>">
-	<h1><%= header_title %></h1>
-	
-	<% if (header_description) { %> 
-		<h3><%= header_description %></h3>
-	<% } %>
-  
+  <header class="big">
+	<h1>Liveable World</h1>
+	<h3>Find the best place to live; Liveable World is an experimental index of the most liveable places on earth through realtime data and collective statistics. Its a new way to examine our world.</h3>
   </header>
+  <div id="main" role="main">
+	<div class="centered_box search">
+		<form>
+		<label class="visuallyhidden" for="search">Find a city:</label> 
+		<input type="text" name="search" value="" placeholder="find a city" id="search"> 	
+		<button class="btn primary" type="submit">Search</button>
+		</form>
+	</div>
+	<nav id="main_menu">
+	<ul class="row">
+		<li class="span-one-third">
+			<a href="take_test.html" title="Take the Test">
+				<h3>Take the Test</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod ante ut lacus pellentesque at posuere tellus aliquam habitant morbi.</p>
+			</a>
+		</li>
+		<li class="span-one-third">
+			<a href="browse.html">
+				<h3>Browse the Index</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod ante ut lacus pellentesque. </p>
+			</a>
+		</li>
+		<li class="span-one-third">
+			<a href="submit.html">
+				<h3>Add Your City</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam euismod ante ut lacus pellentesque at posuere tellus aliquam.</p>
+			</a>
+		</li>		
+	</ul>
+	</nav>
 
-<%- body %>
 
+
+  </div>
   <footer>
+
   </footer>
 
 
