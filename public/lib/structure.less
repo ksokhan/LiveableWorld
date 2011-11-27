@@ -1,0 +1,165 @@
+body {
+	
+}
+
+header {
+	&.normal {
+		padding: 10px 20px;
+		h1 {
+			font-size: 18px;
+			margin-bottom: 0;
+		}
+	}
+	
+	&.border {
+		border-bottom: solid 1px rgba(0,0,0,0.3);
+	}
+	
+	&.big {
+		padding: 50px 50px 40px 50px;
+		text-align: center;	
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}	
+	}
+	
+	h1 a {
+		color: #333;
+	}
+	
+	h3 {
+		color: #999;
+		font-weight: normal;
+		width: 600px;
+		line-height: 32px;
+		margin: 0 auto 10px;
+		text-align: center;
+	}
+}
+
+.centered_box {
+	text-align: center;
+	border-top: dotted 1px #ddd;
+	padding: 20px 0 20px;
+}
+
+#main_menu {
+	ul {
+		list-style: none;
+		li {			
+			a {
+				display: block;
+				padding: 15px 30px 10px;
+				border-top: solid 4px @yellow; 
+				min-height: 130px;
+				position: relative;
+				background-position: 0 -100px;
+				background-repeat: no-repeat !important;
+				#gradient > .vertical(#fafadd,#fff);
+				.transition( all 0.2s linear);
+				&:hover, &:active {
+					text-decoration: none;	
+					background-position: 0 -20px;
+					border-top-color: #9dd100;
+					
+					h3 {color: #4d8900}
+				}
+				&:active h3 {
+					color: #000;
+				}
+			}
+			
+			h3 {
+				margin-bottom: 5px;
+				.transition( all 0.2s linear);
+			 	&::after {
+					content: ' \2192';
+					margin-left: 5px;
+				}
+			}
+			
+			p {
+				color: #999;
+				line-height: 160%;
+			}
+			
+		}
+	}
+}
+
+
+/////////////////////////
+////////////////////////
+
+#main {
+	max-width: 940px;
+	margin: 0 auto;
+	
+	.clearfix;
+}
+
+
+.btn.right { float: right; }
+
+.slider {
+	#gradient > .vertical(#eee,#f4f4f4);
+	.box-shadow(inset 0 2px 1px #ddd);
+	.border-radius(6px);
+	
+	margin-bottom: 30px;
+	
+	.clearfix;
+	
+	& > div {
+		height: 40px;
+		width: 40px;
+		#gradient > .vertical(@yellow + #111, @yellow - #111);
+		overflow: hidden;
+		float: left;
+		margin: 10px;
+		
+		cursor: move;
+		
+		text-indent: -999em;
+		.box-shadow(0 2px 1px rgba(0,0,0,0.1);
+		.transition( all 0.2 linear);
+		.border-radius(20px);
+		
+		&:hover, &.ui-draggable-dragging {
+			background: @yellow - #333;
+		}
+	}
+}
+
+
+
+
+///////////////////////
+#browse {
+	
+	header {
+		height: 55px;
+		
+		h1 {float: left;}
+	}
+	
+	.pills {
+		display: block;
+		margin-right: 20px;
+		float: right;
+	}
+	
+}
+
+
+#map {
+	position: absolute;
+	top: 57px;
+	left: 0;
+	right: 0;
+	bottom: 0px;
+	width: 100%;
+	
+	background: #ddd;
+}
