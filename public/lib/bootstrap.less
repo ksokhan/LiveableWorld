@@ -9,19 +9,21 @@
  * Date: @DATE
  */
 
-// CSS Reset
-@import "reset.less";
+/* CSS Reset */
+@import "public/lib/reset";
 
-// Core variables and mixins
-@import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
+/* Core variables and mixins */
+@import "public/lib/variables"; /* Modify this for custom colors, font-sizes, etc */
+@import "public/lib/mixins";
 
-// Grid system and page structure
-@import "scaffolding.less";
+/* Grid system and page structure */
+@import "public/lib/scaffolding";
 
-// Styled patterns and elements
-@import "type.less";
-@import "forms.less";
-@import "tables.less";
-@import "patterns.less";
-@import "structure.less";
+/* Styled patterns and elements */
+@import "public/lib/type";
+@import "public/lib/forms";
+@import "public/lib/tables";
+@import "public/lib/patterns";
+@import "public/lib/structure";
+
+@import "public/lib/_page";
