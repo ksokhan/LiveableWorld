@@ -2667,6 +2667,14 @@ header h3 {
   width: 100%;
   background: #ddd;
 }
+form h2 em {
+  font-family: "Georgia", Times New Roman, Times, serif;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: inherit;
+  text-indent: -90px;
+  display: inline-block;
+}
 form fieldset {
   padding: 30px 20px;
   border: solid 1px #ddd;
@@ -2674,6 +2682,11 @@ form fieldset {
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin: 10px 0 20px;
+}
+form .ui-slider .ui-slider-handle {
+  border: 1px solid #0a82ff;
+  background: #2fa5ff url(images/ui-bg_highlight-soft_25_0f85ff_1x100.png) 50% 50% repeat-x;
+  outline: 0 !important;
 }
 .back {
   float: left;

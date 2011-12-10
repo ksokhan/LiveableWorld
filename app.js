@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.compiler({ src: __dirname + '/public', enable: ['less'] }));
+app.use(express.compiler({ src: __dirname + '/public', enable: ['less'], autocompile: true }));
 app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/public/libs'));
@@ -37,8 +37,13 @@ places = db.collection('Places');
 // Routes
 
 app.get('/', routes.index);
-app.get('/discover', routes.search);
-app.get('/browse', routes.browse);
+app.get('/discover', routes.discover);
+
+app.get('/contribute', routes.contribute);
+app.post('/contribute/submit', routes.submit_place)
+
+app.get('/browse', function(req, res) {	res.redirect('/browse/map') });
+app.get('/browse/:id', routes.browse);
 
 // data
 app.get('/discover/init', routes.database_init);
