@@ -13,7 +13,7 @@ $(function() {
 							},
 							success: function( data ) {
 								response( $.map( data.geonames, function( item ) {
-									console.log(item);
+									//console.log(item);
 									return {
 										label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
 										country: item.countryName,
