@@ -33,6 +33,8 @@ $(function() {
 		select: function(event, ui) { 
 			$('input#country').val(ui.item.country); 
 			$('input#region').val(ui.item.region); 
+			$('input#locX').val(ui.item.lat);
+			$('input#locY').val(ui.item.lng);
 		}
 		
 	})

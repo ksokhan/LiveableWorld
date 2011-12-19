@@ -2,36 +2,4 @@
 <script type="text/javascript"
     src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC1ZJwQNRaDXH1u9Cek2qkkW73RvqA9Vw8&sensor=true">
 </script>
-<script type="text/javascript">
-// geocoding
-//http://maps.googleapis.com/maps/api/geocode/output?parameters
-
-var mapOptions = {
-  zoom: 2,
-  center: new google.maps.LatLng(37.65323,-79.38318),
-  mapTypeId: google.maps.MapTypeId.ROADMAP,
-  mapTypeControl: false,
-  panControl: false,
-  streetViewControl: false
-};
-
-var app = {
-	map: new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
-	init: function() 
-	{
-		app.set_marker(37.65323,-79.38318);
-	},
-	set_marker: function(x,y) 
-	{
-		var pos = new google.maps.LatLng(x,y);
-		var marker = new google.maps.Marker({
-	        position: pos, 
-	        map: app.map,
-	        title:"Sample Location"
-		});
-	}
-}
-
-$(window).load(app.init);
-
-</script>
+<script type="text/javascript" src="/js/map.js"></script>
