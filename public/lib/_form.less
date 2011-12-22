@@ -1,0 +1,134 @@
+.slidr (@col) {
+	border: solid 1px @col;
+	#gradient > .vertical(@col + #222, @col);
+	border-bottom-color: @col - #333;
+}
+
+
+
+// contribute page
+
+fieldset.location {
+	padding-bottom: 0 !important;
+	
+	#location_preview {
+		margin-top: -30px;
+		margin-bottom: -39px;
+		height: 219px;
+		background: #eee;
+	}
+	
+	.span4, .span3 {
+		margin-bottom: 20px;
+	}
+	
+	label {
+		font-weight: 400;
+		margin-bottom: 10px;
+	}
+	
+	input {
+		width: 190px;
+		letter-spacing: 0.03em;
+	}
+}
+
+
+
+// Search page
+form {
+	hr {
+		margin-bottom: 25px;
+	}
+	h2 {
+		padding-top: 20px;
+	}
+	h2 em {
+		#font.serif(normal, 1em, inherit);
+		text-indent: -90px;
+		display: inline-block;
+	}
+	fieldset {
+		padding: 30px 0 !important;
+		border: solid 1px #ddd;
+		.border-radius(3px);
+		margin: 5px 0 40px;
+
+	}
+	
+	.input 
+	{	
+		height: 20px;
+		position: relative;
+		margin-bottom: 20px;
+		
+		input[type="text"] {
+			font-size: 1.4em;
+			padding: 10px;
+		}
+		
+		input.displayonly {
+			border: 0;
+			background: #fff;
+			padding: 0;
+			.box-shadow(none);
+			cursor: default;
+			
+			color: #999 !important;
+		}
+		
+		.ui-slider-horizontal
+		{
+			position: relative;
+			#gradient > .vertical(#eee,#f4f4f4);
+			.box-shadow(inset 0 2px 1px #ddd);
+			.border-radius(4px);
+			cursor: pointer;
+			border-radius: solid 1px #ccc;
+			height: 20px;
+			
+			.ui-slider-handle {
+				width: 16px;
+				height: 26px;
+				margin-left: -8px;
+				top: -4px;
+				cursor: pointer;
+				
+				#gradient > .vertical(#87da60,#47b832);
+				border-bottom: solid 1px #338524;
+				border-left: solid 1px #37a822;
+				border-right: solid 1px #37a822;
+				border-top: solid 1px #47b832;
+				
+				.box-shadow(~"0 1px 0 #c5eB5C inset, 0 1px 1px rgba(0,0,0,0.2)");
+				
+				outline: 0 none !important;
+				
+			}
+			
+			.ui-slider-range { 
+				.border-radius(4px);
+				//.slidr(#f27c35);
+				.slidr(#b5db4c);
+				top: -1px;
+				
+				.box-shadow(~"0 1px 0 #d5fB6C inset, 0 1px 1px rgba(0,0,0,0.1)");
+				
+			}	
+		}
+		.marker 
+		{
+			position: absolute;
+			top: 0;
+			height: 20px;
+			width: 0;
+			border-left: solid 1px rgba(0,0,0,0.1);
+			border-right: solid 1px rgba(255,255,255,0.2);
+			margin-left: 1px;
+			
+			&.one { left: 25% }
+			&.two { left: 50% }
+			&.three { left: 75% }
+		}
+	}
+}

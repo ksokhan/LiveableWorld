@@ -11,7 +11,7 @@ var app = express.createServer();
 
 // Configuration
 
-app.use(express.logger('dev'));
+//app.use(express.logger('dev'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.bodyParser());
