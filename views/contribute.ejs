@@ -2,58 +2,62 @@
 
 <form class="contrib clearfix" method="post" action="/contribute/submit">
 	<h2><em>Step 1 </em>First, The Formalities</h2>
-	<p>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</p>
+	<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 	
 	<hr />
 	
 	<h4>Background Information</h4>
 	<fieldset class="location form-stacked">
 		<div class="row clearfix">
-			<div id="location_preview" class="span4">
-			</div>
-			
-			<div class="span4 clearfix">
-				<label for="place[name]">City or Town</label>
-				<div class="input">
-					<input type="text" name="place[name]" id="name" autocomplete="off" required >
+			<div id="location_preview" class="span4"></div>
+			<div class="span12 inputs">
+			<div class="row">
+				<div class="span4">
+					<label for="place[name]">City or Town</label>
+					<div class="input">
+						<input type="text" name="place[name]" id="name" autocomplete="off" required >
+					</div>
+				</div>
+				<div class="span4">
+					<label for="place[region]">State, Province, or Region</label>
+					<div class="input">
+						<input type="text" class="displayonly" name="place[region]" autocomplete="off" id="region" disabled="disabled" >
+					</div>
+				</div>
+				<div class="span4">
+					<label for="place[country]">Country</label>
+					<div class="input">
+						<input type="text" class="displayonly" name="place[country]" autocomplete="off" id="country" required disabled="disabled" >
+					</div>
+				</div>
+				<div class="span4">
+					<label for="place[locX]">Latitude</label>
+					<div class="input">
+						<input type="text" class="displayonly" name="place[locX]" id="locX" autocomplete="off" disabled="disabled" required>
+					</div>
+				</div>
+				<div class="span4">
+					<label for="place[locY]">Longitude</label>
+					<div class="input">
+						<input type="text" class="displayonly" name="place[locY]" id="locY" autocomplete="off" disabled="disabled" required>
+					</div>
 				</div>
 			</div>
-			<div class="span4 clearfix">
-				<label for="place[region]">State, Province, or Region</label>
-				<div class="input">
-					<input type="text" name="place[region]" id="region" >
-				</div>
-			</div>
-			<div class="span4 clearfix">
-				<label for="place[country]">Country</label>
-				<div class="input">
-					<input type="text" name="place[country]" id="country" required >
-				</div>
-			</div>
-			<div class="span4">
-				<label for="place[locX]">Latitude</label>
-				<div class="input">
-					<input type="text" class="displayonly" name="place[locX]" id="locX" disabled="disabled" required>
-				</div>
-			</div>
-			<div class="span4">
-				<label for="place[locY]">Longitude</label>
-				<div class="input">
-					<input type="text" class="displayonly" name="place[locY]" id="locY" disabled="disabled" required>
-				</div>
 			</div>
 		</div>		
 	</fieldset>
 	
 	
 	<h2><em>Step 2 </em>What&rsquo;s important to you?</h2>
-	<p>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</p>
+	<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 	
 	<hr />
 	
 	<h4>Infrastructure</h4>
 	<fieldset>
-		<div class="clearfix span10">
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		<div class="span12">
 			<label for="worklife" title="Economy relates to stability">Economy</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
@@ -65,9 +69,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="culturaldiversity">Housing</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -79,9 +81,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="greenspaces">Career</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -93,9 +93,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="greenspaces">Education</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -107,9 +105,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="greenspaces">Healthcare</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -121,9 +117,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="greenspaces">Safety</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -135,12 +129,10 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
-			<label for="greenspaces">Political Freedom & Equality</label> 
+
+			<label for="freedom">Freedom & Equality</label> 
 			<div class="input">
-			<select name="greenspaces" id="greenspaces">
+			<select name="freedom" id="freedom">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -150,13 +142,16 @@
 			</select>
 			</div>
 		</div>
-		
+	</div>
 	</fieldset>
 	
 	
 	<h4>Culture</h4>
 	<fieldset>
-		<div class="clearfix span10">
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		
+		<div class="span12">
 			<label for="worklife">Cultural Diversity</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
@@ -168,9 +163,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+			
 			<label for="culturaldiversity">Sense of Community</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -182,9 +175,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="greenspaces">Artistic/Music Scene</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -196,9 +187,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="greenspaces">Work-Life Balance</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -211,13 +200,16 @@
 			</select>
 			</div>
 		</div>
-		
+	</div>
 	</fieldset>
 	
 	
 	<h4>Environment</h4>
 	<fieldset>
-		<div class="clearfix span10">
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		
+		<div class="span12">
 			<label for="worklife">Recreational and Green Spaces</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
@@ -229,9 +221,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="culturaldiversity">Climate</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -244,13 +234,16 @@
 			</select>
 			</div>
 		</div>
-		
+	</div>
 	</fieldset>
 	
 	
 	<h4>Environment</h4>
 	<fieldset>
-		<div class="clearfix span10">
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		
+		<div class="span12">
 			<label for="worklife">Work-life Balance</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
@@ -262,9 +255,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="culturaldiversity">Cultural Diversity</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -276,9 +267,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix span10">
+
 			<label for="greenspaces">Green Spaces</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -291,9 +280,12 @@
 			</select>
 			</div>
 		</div>
+	</div>
 	</fieldset>
+	
 	<div class="clearfix">
 	<button type="submit" class="btn large primary right">Find my City</button>
 	</div>
+	
 	</form>
 </div>

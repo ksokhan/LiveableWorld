@@ -2615,38 +2615,66 @@ header h3 {
   display: block;
 }
 fieldset.location {
-  padding-bottom: 0 !important;
+  padding-bottom: 10px !important;
 }
 fieldset.location #location_preview {
-  margin-top: -30px;
-  margin-bottom: -39px;
-  height: 219px;
-  background: #eee;
+  margin-top: -31px;
+  margin-bottom: -40px;
+  height: 221px;
+  -webkit-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
+  -moz-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
+  box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
+  background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
 }
-fieldset.location .span4, fieldset.location .span3 {
+fieldset.location .inputs .span4, fieldset.location .inputs .span3 {
   margin-bottom: 20px;
 }
-fieldset.location label {
+fieldset.location .inputs label {
   font-weight: 400;
   margin-bottom: 10px;
+  color: #999;
 }
-fieldset.location input {
+fieldset.location .inputs .input {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  height: 35px;
+}
+fieldset.location .inputs .input input {
   width: 190px;
   letter-spacing: 0.03em;
+  line-height: 35px;
+  height: 35px;
+}
+.ui-autocomplete.ui-widget {
+  z-index: 11 !important;
+  font-size: 1.1em;
+}
+form {
+  padding-bottom: 20px;
 }
 form hr {
   margin-bottom: 25px;
 }
 form h2 {
   padding-top: 20px;
+  position: relative;
+  color: #0069D6;
 }
 form h2 em {
   font-family: "Georgia", Times New Roman, Times, serif;
-  font-size: 1em;
+  font-size: 0.7em;
   font-weight: normal;
   line-height: inherit;
-  text-indent: -90px;
+  line-height: 2.4em;
   display: inline-block;
+  position: absolute;
+  left: -70px;
+  color: #999;
+}
+form h6 {
+  font-weight: 400;
+  text-transform: none;
 }
 form fieldset {
   padding: 30px 0 !important;
@@ -2654,45 +2682,56 @@ form fieldset {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  margin: 5px 0 40px;
+  margin: 5px 0 40px 0px;
+  background-color: #f4f4f4;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fafafa), to(#f4f4f4));
+  background-image: -moz-linear-gradient(top, #fafafa, #f4f4f4);
+  background-image: -ms-linear-gradient(top, #fafafa, #f4f4f4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #f4f4f4));
+  background-image: -webkit-linear-gradient(top, #fafafa, #f4f4f4);
+  background-image: -o-linear-gradient(top, #fafafa, #f4f4f4);
+  background-image: linear-gradient(top, #fafafa, #f4f4f4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#f4f4f4', GradientType=0);
 }
 form .input {
   height: 20px;
   position: relative;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 form .input input[type="text"] {
   font-size: 1.4em;
-  padding: 10px;
+  padding: 0 10px;
 }
 form .input input.displayonly {
   border: 0;
-  background: #fff;
+  background: transparent;
   padding: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
   cursor: default;
-  color: #999 !important;
 }
 form .input .ui-slider-horizontal {
   position: relative;
-  background-color: #f4f4f4;
+  background-color: #f2f2f2;
   background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#eeeeee), to(#f4f4f4));
-  background-image: -moz-linear-gradient(top, #eeeeee, #f4f4f4);
-  background-image: -ms-linear-gradient(top, #eeeeee, #f4f4f4);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #f4f4f4));
-  background-image: -webkit-linear-gradient(top, #eeeeee, #f4f4f4);
-  background-image: -o-linear-gradient(top, #eeeeee, #f4f4f4);
-  background-image: linear-gradient(top, #eeeeee, #f4f4f4);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#f4f4f4', GradientType=0);
-  -webkit-box-shadow: inset 0 2px 1px #dddddd;
-  -moz-box-shadow: inset 0 2px 1px #dddddd;
-  box-shadow: inset 0 2px 1px #dddddd;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#e7e7e7), to(#f2f2f2));
+  background-image: -moz-linear-gradient(top, #e7e7e7, #f2f2f2);
+  background-image: -ms-linear-gradient(top, #e7e7e7, #f2f2f2);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e7e7e7), color-stop(100%, #f2f2f2));
+  background-image: -webkit-linear-gradient(top, #e7e7e7, #f2f2f2);
+  background-image: -o-linear-gradient(top, #e7e7e7, #f2f2f2);
+  background-image: linear-gradient(top, #e7e7e7, #f2f2f2);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7e7e7', endColorstr='#f2f2f2', GradientType=0);
+  -webkit-box-shadow: inset 0 2px 1px #dfdfdf;
+  -moz-box-shadow: inset 0 2px 1px #dfdfdf;
+  box-shadow: inset 0 2px 1px #dfdfdf;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  border-top-color: #ccc;
   cursor: pointer;
   border-radius: solid 1px #ccc;
   height: 20px;

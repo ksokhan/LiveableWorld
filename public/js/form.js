@@ -3,60 +3,75 @@
 $(function() {
 	
 	contribute_form = {
+		ajax_el: null,
 		place: {},
-		update_name: function( ui )
-		{
-			this.place.lat = ui.item.lat;
-			this.place.lng = ui.item.lng;
-			this.place.name = ui.item.name;
+		validate: function() {
+			
 		},
-		city_thumbnail: function() 
+		update: function( item )
 		{
-			$('#location_preview').css('background', 'url(http://maps.googleapis.com/maps/api/staticmap?size=220x219&maptype=roadmap&sensor=false&zoom=8&center=' + contribute_form.place.lat + ',' + contribute_form.place.lng + ') center center no-repeat');
+			// update inputs
+			$('input#country').val(item.country);
+			$('input#region').val(item.region);
+			$('input#locX').val(item.lat);
+			$('input#locY').val(item.lng);
+			
+			// update the internal var
+			this.place.lat = item.lat;
+			this.place.lng = item.lng;
+			this.place.name = item.name;
+			
+			// update thumbnail after
+			this.set_thumbnail();
+		},
+		set_thumbnail: function()
+		{
+			var zoom = typeof this.place.lng != 'undefined' ? 3 : 1;
+			$('#location_preview').css('background', 'url(http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=' + zoom + '&markers=size:small|color:red|' + this.place.lat + ',' + this.place.lng + '&center=' + this.place.lat + ',' + this.place.lng + ') center center no-repeat');
 		}
 	}
 	
-	
-	
 	// autocomplete the city
-	$('form #name').autocomplete({
+	$('form #name').focus(function() {
+		var item = {}
+		$(this).val('');
+		contribute_form.update(item);
+	}).autocomplete({
 		source: function( request, response ) {
-						$.ajax({
-							url: "http://ws.geonames.org/searchJSON",
-							dataType: "jsonp",
-							data: {
-								featureClass: "P",
-								style: "full",
-								maxRows: 12,
-								name_startsWith: request.term
-							},
-							success: function(data) {
-								response( $.map( data.geonames, function( item ) {
-									return {
-										label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
-										country: item.countryName,
-										region: item.adminName1,
-										population: item.population,
-										lat: item.lat,
-										lng: item.lng,
-										value: item.name
-									}
-								}));
-							}
-						});
-					},
-		minLength: 2,
-		delay: 50,
-		select: function(event, ui) { 
-			$('input#country').val(ui.item.country); 
-			$('input#region').val(ui.item.region); 
-			$('input#locX').val(ui.item.lat);
-			$('input#locY').val(ui.item.lng);
+			// stop last ajax request, if it exists.
+			if (contribute_form.ajax_el) contribute_form.ajax_el.abort();
 			
-			contribute_form.update_name(ui);
-			contribute_form.city_thumbnail(ui);
+			contribute_form.ajax_el = $.ajax({
+				url: "http://ws.geonames.org/searchJSON",
+				dataType: "jsonp",
+				data: {
+					featureClass: "P",
+					style: "full",
+					maxRows: 12,
+					name_startsWith: request.term
+				},
+				success: function(data) {
+					$('.ui-autocomplete-loading').removeClass('ui-autocomplete-loading');
+					response( $.map( data.geonames, function( item ) {
+						return {
+							label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+							country: item.countryName,
+							region: item.adminName1,
+							population: item.population,
+							lat: item.lat,
+							lng: item.lng,
+							value: item.name
+						}
+					}));
+				}
+			});
+		},
+		minLength: 2,
+		delay: 20,
+		select: function(event, ui) 
+		{
+			contribute_form.update(ui.item);
 		}
-		
 	})
 	
 	// form polyfill
@@ -100,10 +115,6 @@ $(function() {
 		placement: 'above',
 		offset: 9
 	});
-	
-	
-	
-	
 	
 		
 });

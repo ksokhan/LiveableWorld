@@ -8,81 +8,124 @@
 
 // contribute page
 
-fieldset.location {
-	padding-bottom: 0 !important;
+fieldset.location 
+{
+	padding-bottom: 10px !important;
 	
-	#location_preview {
-		margin-top: -30px;
-		margin-bottom: -39px;
-		height: 219px;
-		background: #eee;
+	#location_preview 
+	{
+		margin-top: -31px;
+		margin-bottom: -40px;
+		height: 221px;
+		.box-shadow(~"-1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset");
+		
+		background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
 	}
 	
-	.span4, .span3 {
-		margin-bottom: 20px;
-	}
-	
-	label {
-		font-weight: 400;
-		margin-bottom: 10px;
-	}
-	
-	input {
-		width: 190px;
-		letter-spacing: 0.03em;
+	.inputs 
+	{
+		.span4, .span3 {
+			margin-bottom: 20px;
+			//float: left;
+		}
+		
+		label {
+			font-weight: 400;
+			margin-bottom: 10px;
+			color: #999;
+		}
+		
+		.input 
+		{
+			margin-top: 0;
+			margin-bottom: 0;
+			margin-right: 0;
+			height: 35px;
+			
+			input {
+				width: 190px;
+				letter-spacing: 0.03em;
+				line-height: 35px;
+				height: 35px;
+			}
+		}
 	}
 }
 
-
+.ui-autocomplete.ui-widget {
+	z-index: 11 !important;
+	font-size: 1.1em;	
+}
 
 // Search page
-form {
+form 
+{
+	padding-bottom: 20px;
+	
 	hr {
 		margin-bottom: 25px;
 	}
-	h2 {
+	
+	h2 
+	{
 		padding-top: 20px;
+		position: relative;
+		color: #0069D6;
+		
+		em {
+			#font.serif(normal, 0.7em, inherit);
+			line-height: 2.4em;
+			display: inline-block;
+			position: absolute;
+			left: -70px;
+			
+			color: #999;
+		}
 	}
-	h2 em {
-		#font.serif(normal, 1em, inherit);
-		text-indent: -90px;
-		display: inline-block;
+	
+	h6 {
+		font-weight: 400;
+		text-transform: none;
 	}
+	
 	fieldset {
 		padding: 30px 0 !important;
 		border: solid 1px #ddd;
 		.border-radius(3px);
-		margin: 5px 0 40px;
-
+		margin: 5px 0 40px 0px;
+		
+		#gradient > .vertical(#fafafa,#f4f4f4);
 	}
 	
 	.input 
 	{	
 		height: 20px;
 		position: relative;
-		margin-bottom: 20px;
+		margin-top: 20px;
+		margin-bottom: 40px;
+		//margin-right: 40px;
 		
 		input[type="text"] {
 			font-size: 1.4em;
-			padding: 10px;
+			padding: 0 10px;
 		}
 		
 		input.displayonly {
 			border: 0;
-			background: #fff;
+			background: transparent;
 			padding: 0;
 			.box-shadow(none);
 			cursor: default;
 			
-			color: #999 !important;
 		}
 		
 		.ui-slider-horizontal
 		{
 			position: relative;
-			#gradient > .vertical(#eee,#f4f4f4);
-			.box-shadow(inset 0 2px 1px #ddd);
+			#gradient > .vertical(#e7e7e7,#f2f2f2);
+			.box-shadow(inset 0 2px 1px #dfdfdf);
 			.border-radius(4px);
+			border-top-color: #ccc;
 			cursor: pointer;
 			border-radius: solid 1px #ccc;
 			height: 20px;
@@ -93,17 +136,13 @@ form {
 				margin-left: -8px;
 				top: -4px;
 				cursor: pointer;
-				
 				#gradient > .vertical(#87da60,#47b832);
 				border-bottom: solid 1px #338524;
 				border-left: solid 1px #37a822;
 				border-right: solid 1px #37a822;
 				border-top: solid 1px #47b832;
-				
 				.box-shadow(~"0 1px 0 #c5eB5C inset, 0 1px 1px rgba(0,0,0,0.2)");
-				
 				outline: 0 none !important;
-				
 			}
 			
 			.ui-slider-range { 
@@ -111,9 +150,7 @@ form {
 				//.slidr(#f27c35);
 				.slidr(#b5db4c);
 				top: -1px;
-				
 				.box-shadow(~"0 1px 0 #d5fB6C inset, 0 1px 1px rgba(0,0,0,0.1)");
-				
 			}	
 		}
 		.marker 
