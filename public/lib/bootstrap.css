@@ -2633,6 +2633,7 @@ fieldset.location .inputs label {
   font-weight: 400;
   margin-bottom: 10px;
   color: #999;
+  margin-top: 0;
 }
 fieldset.location .inputs .input {
   margin-top: 0;
@@ -2679,23 +2680,38 @@ form h6 {
 form fieldset {
   padding: 30px 0 !important;
   border: solid 1px #ddd;
+  border-bottom-color: #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin: 5px 0 40px 0px;
-  -webkit-box-shadow: 0 1px 0 #fff inset;
-  -moz-box-shadow: 0 1px 0 #fff inset;
-  box-shadow: 0 1px 0 #fff inset;
-  background-color: #f4f4f4;
+  -webkit-box-shadow: 0 1px 0 #fff inset, 0 1px 0 #eee;
+  -moz-box-shadow: 0 1px 0 #fff inset, 0 1px 0 #eee;
+  box-shadow: 0 1px 0 #fff inset, 0 1px 0 #eee;
+  background-color: #ececec;
   background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fafafa), to(#f4f4f4));
-  background-image: -moz-linear-gradient(top, #fafafa, #f4f4f4);
-  background-image: -ms-linear-gradient(top, #fafafa, #f4f4f4);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #f4f4f4));
-  background-image: -webkit-linear-gradient(top, #fafafa, #f4f4f4);
-  background-image: -o-linear-gradient(top, #fafafa, #f4f4f4);
-  background-image: linear-gradient(top, #fafafa, #f4f4f4);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#f4f4f4', GradientType=0);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fafafa), to(#ececec));
+  background-image: -moz-linear-gradient(top, #fafafa, #ececec);
+  background-image: -ms-linear-gradient(top, #fafafa, #ececec);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #ececec));
+  background-image: -webkit-linear-gradient(top, #fafafa, #ececec);
+  background-image: -o-linear-gradient(top, #fafafa, #ececec);
+  background-image: linear-gradient(top, #fafafa, #ececec);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#ececec', GradientType=0);
+  position: relative;
+}
+form fieldset:before {
+  content: "";
+  background: url("/images/system/texture_noise.png") repeat;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 30px 0 10px 0;
+}
+form fieldset label:first-child {
+  margin-top: 20px;
 }
 form .input {
   height: 20px;
@@ -2718,16 +2734,16 @@ form .input input.displayonly {
 }
 form .input .ui-slider-horizontal {
   position: relative;
-  background-color: #f2f2f2;
+  background-color: rgba(100, 100, 100, 0.02);
   background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#e7e7e7), to(#f2f2f2));
-  background-image: -moz-linear-gradient(top, #e7e7e7, #f2f2f2);
-  background-image: -ms-linear-gradient(top, #e7e7e7, #f2f2f2);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e7e7e7), color-stop(100%, #f2f2f2));
-  background-image: -webkit-linear-gradient(top, #e7e7e7, #f2f2f2);
-  background-image: -o-linear-gradient(top, #e7e7e7, #f2f2f2);
-  background-image: linear-gradient(top, #e7e7e7, #f2f2f2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7e7e7', endColorstr='#f2f2f2', GradientType=0);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(rgba(100, 100, 100, 0.04)), to(rgba(100, 100, 100, 0.02)));
+  background-image: -moz-linear-gradient(top, rgba(100, 100, 100, 0.04), rgba(100, 100, 100, 0.02));
+  background-image: -ms-linear-gradient(top, rgba(100, 100, 100, 0.04), rgba(100, 100, 100, 0.02));
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(100, 100, 100, 0.04)), color-stop(100%, rgba(100, 100, 100, 0.02)));
+  background-image: -webkit-linear-gradient(top, rgba(100, 100, 100, 0.04), rgba(100, 100, 100, 0.02));
+  background-image: -o-linear-gradient(top, rgba(100, 100, 100, 0.04), rgba(100, 100, 100, 0.02));
+  background-image: linear-gradient(top, rgba(100, 100, 100, 0.04), rgba(100, 100, 100, 0.02));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='rgba(100, 100, 100, 0.04)', endColorstr='rgba(100, 100, 100, 0.02)', GradientType=0);
   -webkit-box-shadow: inset 0 2px 1px #dfdfdf;
   -moz-box-shadow: inset 0 2px 1px #dfdfdf;
   box-shadow: inset 0 2px 1px #dfdfdf;
