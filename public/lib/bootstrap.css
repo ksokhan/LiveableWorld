@@ -2683,6 +2683,9 @@ form fieldset {
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin: 5px 0 40px 0px;
+  -webkit-box-shadow: 0 1px 0 #fff inset;
+  -moz-box-shadow: 0 1px 0 #fff inset;
+  box-shadow: 0 1px 0 #fff inset;
   background-color: #f4f4f4;
   background-repeat: repeat-x;
   background-image: -khtml-gradient(linear, left top, left bottom, from(#fafafa), to(#f4f4f4));

@@ -1,10 +1,12 @@
 <div id="main" role="main">
 <form class="search">
 
-	<h4>Infrastructure</h4>
+<h4>Infrastructure</h4>
 	<fieldset>
-		<div class="clearfix">
-			<label for="worklife">Economy</label> 
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		<div class="span12">
+			<label for="worklife" title="Economy relates to stability">Economy</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
 				<option>0</option>
@@ -15,9 +17,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="culturaldiversity">Housing</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -29,9 +29,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="greenspaces">Career</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -43,9 +41,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="greenspaces">Education</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -57,9 +53,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="greenspaces">Healthcare</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -71,9 +65,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="greenspaces">Safety</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -85,12 +77,10 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
-			<label for="greenspaces">Political Freedom & Equality</label> 
+
+			<label for="freedom">Freedom & Equality</label> 
 			<div class="input">
-			<select name="greenspaces" id="greenspaces">
+			<select name="freedom" id="freedom">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -100,13 +90,16 @@
 			</select>
 			</div>
 		</div>
-		
+	</div>
 	</fieldset>
 	
 	
 	<h4>Culture</h4>
 	<fieldset>
-		<div class="clearfix">
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		
+		<div class="span12">
 			<label for="worklife">Cultural Diversity</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
@@ -118,9 +111,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+			
 			<label for="culturaldiversity">Sense of Community</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -132,9 +123,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="greenspaces">Artistic/Music Scene</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -146,9 +135,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="greenspaces">Work-Life Balance</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -161,13 +148,16 @@
 			</select>
 			</div>
 		</div>
-		
+	</div>
 	</fieldset>
 	
 	
 	<h4>Environment</h4>
 	<fieldset>
-		<div class="clearfix">
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		
+		<div class="span12">
 			<label for="worklife">Recreational and Green Spaces</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
@@ -179,9 +169,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="culturaldiversity">Climate</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -194,13 +182,16 @@
 			</select>
 			</div>
 		</div>
-		
+	</div>
 	</fieldset>
 	
 	
 	<h4>Environment</h4>
 	<fieldset>
-		<div class="clearfix">
+	<div class="row">
+		<div class="leftbar span3">&nbsp;</div>
+		
+		<div class="span12">
 			<label for="worklife">Work-life Balance</label> 
 			<div class="input">
 			<select name="worklife" id="worklife">
@@ -212,9 +203,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="culturaldiversity">Cultural Diversity</label> 
 			<div class="input">
 			<select name="culturaldiversity" id="culturaldiversity">
@@ -226,9 +215,7 @@
 				<option>5</option>
 			</select>
 			</div>
-		</div>
-		
-		<div class="clearfix">
+
 			<label for="greenspaces">Green Spaces</label> 
 			<div class="input">
 			<select name="greenspaces" id="greenspaces">
@@ -241,8 +228,12 @@
 			</select>
 			</div>
 		</div>
+	</div>
 	</fieldset>
-	<button type="submit" class="btn large primary right">Find my City</button>
+	
+	<div class="clearfix">
+		<button type="submit" class="btn large primary right">Find my City</button>
+	</div>
   </div>
 
 </form>
