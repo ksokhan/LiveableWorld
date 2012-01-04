@@ -100,7 +100,7 @@ form
 		
 		&:before {
 			content: "";
-			background: url("/images/system/texture_noise.png") repeat;
+			background: url("/lib/images/texture_noise.png") repeat;
 			position: absolute;
 			top: -30px;
 			left: 0;
@@ -128,13 +128,14 @@ form
 			padding: 0 10px;
 		}
 		
-		input.displayonly {
+		input.displayonly {display: none;}
+		
+		span.displayonly {
 			border: 0;
 			background: transparent;
 			padding: 0;
 			.box-shadow(none);
 			cursor: default;
-			
 		}
 		
 		.ui-slider-horizontal

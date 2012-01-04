@@ -2481,6 +2481,13 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
   box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
+@font-face {
+  font-family: 'FamiliarProBold';
+  src: url('/lib/fonts/Familiar_Pro-Bold-webfont.eot');
+  src: url('/lib/fonts/Familiar_Pro-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('/lib/fonts/Familiar_Pro-Bold-webfont.woff') format('woff'), url('/lib/fonts/Familiar_Pro-Bold-webfont.ttf') format('truetype'), url('/lib/fonts/Familiar_Pro-Bold-webfont.svg#FamiliarProBold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
 body {
   letter-spacing: 0.02em;
 }
@@ -2496,12 +2503,26 @@ header.border {
   border-bottom: solid 1px rgba(0, 0, 0, 0.3);
 }
 header.big {
-  padding: 50px 50px 40px 50px;
+  height: 405px;
+  background: #011a49 url('/lib/images/home_banner.jpg') center center no-repeat;
+  padding: 0px 50px 0px 50px;
+  margin-bottom: 20px;
   text-align: center;
 }
 header.big h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  padding-top: 70px;
+}
+header.big h1 a {
+  color: #fff;
+  letter-spacing: 0.02em;
+  font: 600 1.2em 'FamiliarProBold', Helvetica, Arial, sans-serif;
+}
+header.big h3 {
+  color: #80c7fb;
+  font-size: 1.5em;
+  line-height: 30px;
 }
 header h1 a {
   color: #333;
@@ -2516,8 +2537,7 @@ header h3 {
 }
 .centered_box {
   text-align: center;
-  border-top: dotted 1px #ddd;
-  padding: 20px 0 20px;
+  padding: 20px 0 0px;
 }
 #main_menu ul {
   list-style: none;
@@ -2702,7 +2722,7 @@ form fieldset {
 }
 form fieldset:before {
   content: "";
-  background: url("/images/system/texture_noise.png") repeat;
+  background: url("/lib/images/texture_noise.png") repeat;
   position: absolute;
   top: -30px;
   left: 0;
@@ -2724,6 +2744,9 @@ form .input input[type="text"] {
   padding: 0 10px;
 }
 form .input input.displayonly {
+  display: none;
+}
+form .input span.displayonly {
   border: 0;
   background: transparent;
   padding: 0;

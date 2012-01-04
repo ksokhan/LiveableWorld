@@ -7,7 +7,7 @@ exports.index = function(req, res){
   	res.render('home', { 
 		header_class: 'big',
 		header_title: 'Liveable World',
-		header_description: 'Find the best place to live; Liveable World is an experimental index of the most liveable places on earth through realtime data and collective statistics. Its a new way to examine our world.',
+		header_description: 'Find the best place to live. Liveable World is an experimental index of the most liveable places on earth through realtime data and collective statistics. Its a new way to examine our world.',
 		layout: 'layouts/home.ejs'
 	});
 };
@@ -67,7 +67,7 @@ exports.database_clear = function(req, res){
 
 exports.submit_place = function(req, res){
 	var place = req.body.place;
-	//console.log(place);
+	console.log(place);
 	places.update({ name:place.name }, { $inc: { submissions:1 }, "$addToSet": {locX: place.locX, locY: place.locY} }, {upsert: true});
   	res.redirect('/data');
 };
