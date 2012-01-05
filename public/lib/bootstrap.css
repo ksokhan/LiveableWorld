@@ -2743,9 +2743,6 @@ form .input input[type="text"] {
   font-size: 1.4em;
   padding: 0 10px;
 }
-form .input input.displayonly {
-  display: none;
-}
 form .input span.displayonly {
   border: 0;
   background: transparent;
@@ -2754,6 +2751,7 @@ form .input span.displayonly {
   -moz-box-shadow: none;
   box-shadow: none;
   cursor: default;
+  font-size: 1.4em;
 }
 form .input .ui-slider-horizontal {
   position: relative;

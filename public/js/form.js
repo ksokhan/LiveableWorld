@@ -11,10 +11,11 @@ $(function() {
 		update: function( item )
 		{
 			// update inputs
-			$('input#country').val(item.country);
-			$('input#region').val(item.region);
-			$('input#locX').val(item.lat);
-			$('input#locY').val(item.lng);
+			$('input#country').val(item.country).siblings('span.displayonly').text(item.country);
+			$('input#region').val(item.region).siblings('span.displayonly').text(item.region);
+			$('input#locX').val(item.lat).siblings('span.displayonly').text(item.lat);
+			$('input#locY').val(item.lng).siblings('span.displayonly').text(item.lng);
+
 			
 			// update the internal var
 			this.place.lat = item.lat;
@@ -36,6 +37,8 @@ $(function() {
 		var item = {}
 		$(this).val('');
 		contribute_form.update(item);
+		//force clear spans
+		$('form span.displayonly').text('');
 	}).autocomplete({
 		source: function( request, response ) {
 			// stop last ajax request, if it exists.
