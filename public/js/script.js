@@ -16,5 +16,13 @@ window.log = function(){
 
 
 $(function() {	
-
+  // simply show the 'This is in development' screen.
+  if(sessionStorage && !sessionStorage.getItem('dev_notice')) {
+    $('#dev_notice').modal({
+      show: true,
+      backdrop: true
+    });
+  }
+  
+  
 });

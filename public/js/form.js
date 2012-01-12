@@ -89,7 +89,7 @@ $(function() {
 	// ratings sliders
 	$('.slider').slider({
 		range: "min",
-		value:0,
+		value:1,
 		max: 40,
 		create: function() {
 			$(this).after('<div class="marker one"></div><div class="marker two"></div><div class="marker three"></div>');
@@ -100,14 +100,14 @@ $(function() {
 			var variance = ui.value % 10;
 			var val = variance < 5 ? ui.value - variance : ui.value - variance + 10;
 			
-			// set dropdown value 
+			// set dropdown value
 			//$(this).siblings('select').val(val / 10);
 	
 			// if its zero, show just a little bit of it.
 			if (val == 0) val = 1;
 				
 			$(this).slider('value', val);
-			
+			log($(this).siblings(':input').val(parseInt(val/10)));
 		}
 	});
 
@@ -116,7 +116,8 @@ $(function() {
 	
 	$('form label').twipsy({
 		placement: 'above',
-		offset: 9
+		offset: 9,
+		leftpos: '70px'
 	});
 	
 		

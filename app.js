@@ -33,6 +33,7 @@ app.configure('development', function(){
 // DB setup
 db = mongo.db('localhost:27017/liveableworld');
 places = db.collection('Places');
+submissions = db.collection('Submissions');
 
 // Routes
 
@@ -46,9 +47,8 @@ app.get('/browse', function(req, res) {	res.redirect('/browse/map') });
 app.get('/browse/:id', routes.browse);
 
 // data
-app.get('/discover/init', routes.database_init);
 app.get('/cleardb', routes.database_clear);
-app.get('/data', routes.database_test);
+app.get('/data/:id', routes.database_test);
 
 app.listen(3001);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

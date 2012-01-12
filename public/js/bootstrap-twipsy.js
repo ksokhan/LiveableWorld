@@ -92,7 +92,9 @@
 
         actualWidth = $tip[0].offsetWidth
         actualHeight = $tip[0].offsetHeight
-
+        
+        if (this.options.leftpos) $tip.css({'margin-left': this.options.leftpos})
+        
         placement = maybeCall(this.options.placement, this, [ $tip[0], this.$element[0] ])
 
         switch (placement) {
@@ -302,6 +304,7 @@
   , title: 'title'
   , trigger: 'hover'
   , template: '<div class="twipsy-arrow"></div><div class="twipsy-inner"></div>'
+  , leftpos : 0
   }
 
   $.fn.twipsy.rejectAttrOptions = [ 'title' ]

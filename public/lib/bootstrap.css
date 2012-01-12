@@ -2268,7 +2268,8 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   position: absolute;
   visibility: visible;
   padding: 5px;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 130%;
   z-index: 1000;
   filter: alpha(opacity=80);
   -khtml-opacity: 0.8;
@@ -2314,7 +2315,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border-right: 5px solid #000000;
 }
 .twipsy-inner {
-  padding: 3px 8px;
+  padding: 12px 16px;
   background-color: #000000;
   color: white;
   text-align: center;
@@ -2634,39 +2635,6 @@ header h3 {
   margin: 5px 20px 0 0;
   display: block;
 }
-fieldset.location {
-  padding-bottom: 10px !important;
-}
-fieldset.location #location_preview {
-  margin-top: -31px;
-  margin-bottom: -40px;
-  height: 221px;
-  -webkit-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
-  -moz-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
-  box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
-  background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
-}
-fieldset.location .inputs .span4, fieldset.location .inputs .span3 {
-  margin-bottom: 20px;
-}
-fieldset.location .inputs label {
-  font-weight: 400;
-  margin-bottom: 10px;
-  color: #999;
-  margin-top: 0;
-}
-fieldset.location .inputs .input {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 0;
-  height: 35px;
-}
-fieldset.location .inputs .input input {
-  width: 190px;
-  letter-spacing: 0.03em;
-  line-height: 35px;
-  height: 35px;
-}
 .ui-autocomplete.ui-widget {
   z-index: 11 !important;
   font-size: 1.1em;
@@ -2680,7 +2648,7 @@ form hr {
 form h2 {
   padding-top: 20px;
   position: relative;
-  color: #0069D6;
+  color: #0069d6;
 }
 form h2 em {
   font-family: "Georgia", Times New Roman, Times, serif;
@@ -2730,6 +2698,43 @@ form fieldset:before {
   height: 100%;
   padding: 30px 0 10px 0;
 }
+form fieldset label {
+  position: relative;
+  z-index: 2;
+  width: 160px;
+  top: -4px;
+}
+form fieldset label:after {
+  content: "?";
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 19px;
+  color: #ccc;
+  border: solid 1px #ddd;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+  height: 18px;
+  width: 17px;
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 1px;
+  padding-left: 1px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+form fieldset label:hover:after {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  color: #0069d6;
+  border: solid 1px #0069d6;
+}
 form fieldset label:first-child {
   margin-top: 20px;
 }
@@ -2738,6 +2743,7 @@ form .input {
   position: relative;
   margin-top: 20px;
   margin-bottom: 40px;
+  margin-left: 190px;
 }
 form .input input[type="text"] {
   font-size: 1.4em;
@@ -2839,4 +2845,40 @@ form .input .marker.two {
 }
 form .input .marker.three {
   left: 75%;
+}
+fieldset.location {
+  padding-bottom: 10px !important;
+}
+fieldset.location #location_preview {
+  margin-top: -31px;
+  margin-bottom: -40px;
+  height: 221px;
+  -webkit-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
+  -moz-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
+  box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
+  background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
+}
+fieldset.location .inputs .span4, fieldset.location .inputs .span3 {
+  margin-bottom: 20px;
+}
+fieldset.location .inputs label {
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: #999;
+  margin-top: 0;
+}
+fieldset.location .inputs label:after {
+  content: none;
+}
+fieldset.location .inputs .input {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  height: 35px;
+}
+fieldset.location .inputs .input input {
+  width: 190px;
+  letter-spacing: 0.03em;
+  line-height: 35px;
+  height: 35px;
 }

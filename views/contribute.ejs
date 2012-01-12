@@ -15,35 +15,35 @@
 				<div class="span4">
 					<label for="place[name]">City or Town</label>
 					<div class="input">
-						<input type="text" name="place[name]" id="name" autocomplete="off" required >
+						<input type="text" name="place[name]" id="name" value="" placeholder="Auckland" autocomplete="off" required="required" />
 					</div>
 				</div>
 				<div class="span4">
 					<label for="place[region]">State, Province, or Region</label>
 					<div class="input">
 						<span class="displayonly"></span>
-						<input type="hidden" class="displayonly" name="place[region]" autocomplete="off" id="region" >
+						<input type="hidden" class="displayonly" name="place[region]" autocomplete="off" id="region" />
 					</div>
 				</div>
 				<div class="span4">
 					<label for="place[country]">Country</label>
 					<div class="input">
 						<span class="displayonly"></span>
-						<input type="hidden" class="displayonly" name="place[country]" autocomplete="off" id="country" required >
+						<input type="hidden" class="displayonly" name="place[country]" autocomplete="off" id="country" />
 					</div>
 				</div>
 				<div class="span4">
 					<label for="place[locX]">Latitude</label>
 					<div class="input">
 						<span class="displayonly"></span>
-						<input type="hidden" class="displayonly" name="place[locX]" id="locX" autocomplete="off" required>
+						<input type="hidden" class="displayonly" name="place[locX]" id="locX" autocomplete="off" />
 					</div>
 				</div>
 				<div class="span4">
 					<label for="place[locY]">Longitude</label>
 					<div class="input">
 						<span class="displayonly"></span>
-						<input type="hidden" class="displayonly" name="place[locY]" id="locY" autocomplete="off" required>
+						<input type="hidden" class="displayonly" name="place[locY]" id="locY" autocomplete="off" />
 					</div>
 				</div>
 			</div>
@@ -62,9 +62,38 @@
 	<div class="row">
 		<div class="leftbar span3">&nbsp;</div>
 		<div class="span12">
-			<label for="worklife" title="Economy relates to stability">Economy</label> 
+		
+			<%- partial('partials/sliders', { locals: {
+				id		: 'econ',
+				item	: 'Economy',
+				title	: 'How important is the stability of the financial sector, and government finances'
+			}}) %>
+
+			<%- partial('partials/sliders', { locals: {
+				id		: 'car',
+				item	: 'Career',
+				title	: 'How important is the stability of the financial sector, and government finances'
+			}}) %>
+			
+			<%- partial('partials/sliders', { locals: {
+				id		: 'edu',
+				item	: 'Education',
+				title	: 'How important is the stability of the financial sector, and government finances'
+			}}) %>
+			<%- partial('partials/sliders', { locals: {
+				id		: 'heal',
+				item	: 'Healthcare',
+				title	: 'How important is the stability of the financial sector, and government finances'
+			}}) %>
+			<%- partial('partials/sliders', { locals: {
+				id		: 'saf',
+				item	: 'Safety',
+				title	: 'How important is the stability of the financial sector, and government finances'
+			}}) %>
+
+			<label for="rating[safety]">Safety</label> 
 			<div class="input">
-			<select name="worklife" id="worklife">
+			<select name="rating[safety]">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -74,69 +103,9 @@
 			</select>
 			</div>
 
-			<label for="culturaldiversity">Housing</label> 
+			<label for="rating[freedom]">Freedom & Equality</label> 
 			<div class="input">
-			<select name="culturaldiversity" id="culturaldiversity">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="greenspaces">Career</label> 
-			<div class="input">
-			<select name="greenspaces" id="greenspaces">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="greenspaces">Education</label> 
-			<div class="input">
-			<select name="greenspaces" id="greenspaces">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="greenspaces">Healthcare</label> 
-			<div class="input">
-			<select name="greenspaces" id="greenspaces">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="greenspaces">Safety</label> 
-			<div class="input">
-			<select name="greenspaces" id="greenspaces">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="freedom">Freedom & Equality</label> 
-			<div class="input">
-			<select name="freedom" id="freedom">
+			<select name="rating[freedom]">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -156,9 +125,9 @@
 		<div class="leftbar span3">&nbsp;</div>
 		
 		<div class="span12">
-			<label for="worklife">Cultural Diversity</label> 
+			<label for="rating[diversity]">Cultural Diversity</label> 
 			<div class="input">
-			<select name="worklife" id="worklife">
+			<select name="rating[diversity]">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -168,9 +137,9 @@
 			</select>
 			</div>
 			
-			<label for="culturaldiversity">Sense of Community</label> 
+			<label for="rating[community]">Sense of Community</label> 
 			<div class="input">
-			<select name="culturaldiversity" id="culturaldiversity">
+			<select name="rating[community]">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -180,9 +149,9 @@
 			</select>
 			</div>
 
-			<label for="greenspaces">Artistic/Music Scene</label> 
+			<label for="rating[Artistic/Music Scene]">Artistic/Music Scene</label> 
 			<div class="input">
-			<select name="greenspaces" id="greenspaces">
+			<select name="greenspaces">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -194,7 +163,7 @@
 
 			<label for="greenspaces">Work-Life Balance</label> 
 			<div class="input">
-			<select name="greenspaces" id="greenspaces">
+			<select name="greenspaces">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -274,7 +243,7 @@
 
 			<label for="greenspaces">Green Spaces</label> 
 			<div class="input">
-			<select name="greenspaces" id="greenspaces">
+			<select name="greenspaces">
 				<option>0</option>
 				<option>1</option>
 				<option>2</option>
@@ -288,7 +257,7 @@
 	</fieldset>
 	
 	<div class="clearfix">
-	<button type="submit" class="btn large primary right">Find my City</button>
+	<button type="submit" class="btn large primary right">Submit my City</button>
 	</div>
 	
 	</form>

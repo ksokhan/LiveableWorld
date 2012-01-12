@@ -14,5 +14,22 @@
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
+  <script type="text/javascript" src="/js/bootstrap-modal.js"></script>
+
+  <div id="dev_notice" class="modal hide fade">
+            <div class="modal-header">
+              <a href="#" class="close">&times;</a>
+              <h3>This project is under development</h3>
+            </div>
+            <div class="modal-body">
+              <p>Liveable World is an attempt to evaluate the liveability of our world through a new type of Liveability Index, which harnesses the Internet's information sources along with user-contributed data.</p>
+              <p>This piece is a work in progress. You can learn more in the project's documentation.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="javascript:sessionStorage.setItem('dev_notice', true)" onclick="$('#dev_notice').modal('hide')" class="btn primary">Continue</a>
+              <a href="//liveableworld.com" class="btn secondary">Visit the documentation</a>
+              
+            </div>
+  </div>
 </body>
 </html>

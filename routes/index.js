@@ -43,22 +43,24 @@ exports.discover = function(req, res){
 ///////////////////////////////////
 /// Post routes
 
-exports.database_init = function(req, res){
-  	// bootstrap with sample
-	places.save({ name: "Toronto", num: 25 });
-	places.save({ name: "Calgary", num: 5 });
-	places.save({ name: "Ottawa", num: 7 });
-	places.save({ name: "New York", num: 33 });
-	res.send('done');
-};
 
 exports.database_test = function(req, res){
-  	places.find().toArray(function(err, items){
-	    res.send(items, { 'Content-Type': 'text/plain' });
-	});
+	var e = req.params.id ? req.params.id : 'places';
+	if (e == "places") {
+		places.find().toArray(function(err, items){
+	    	res.send(items, { 'Content-Type': 'text/plain' });
+		});
+	} else {
+		submissions.find().toArray(function(err, items){
+	    	res.send(items, { 'Content-Type': 'text/plain' });
+		});
+	}
+  	
 };
 
 exports.database_clear = function(req, res){
+	submissions.remove({},{},function() {
+	});
   	places.remove({},{},function() {
 		res.send('complete.');
 	});
@@ -66,8 +68,29 @@ exports.database_clear = function(req, res){
 
 
 exports.submit_place = function(req, res){
-	var place = req.body.place;
-	console.log(place);
-	places.update({ name:place.name }, { $inc: { submissions:1 }, "$addToSet": {locX: place.locX, locY: place.locY} }, {upsert: true});
+	var p = req.body.place;
+	var s = req.body.rating;
+	// create the loc tag; acts as id in matching ratings with location
+	var item_id = p.locX + "-" + p.locY;
+	
+	// if the place is in db already, then fine. if not, then add.
+	// inc counts the number of submissions.
+	places.update(
+		{
+			loc		: item_id, 
+			cit		: p.name, 
+			reg		: p.region, 
+			cnt		: p.country, 
+			locX	: p.locX, 
+			locY	: p.locY 
+		}, 
+		{ $inc: { count:1 } }, 
+		{ upsert: true }
+	);
+	
+	//append location tag to object
+	s.loc = item_id;
+	submissions.save(s);
+	
   	res.redirect('/data');
 };
