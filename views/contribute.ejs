@@ -63,115 +63,95 @@
 		<div class="leftbar span3">&nbsp;</div>
 		<div class="span12">
 		
-			<%- partial('partials/sliders', { locals: {
+		<%- 
+			partial('partials/sliders', { locals: {
 				id		: 'econ',
 				item	: 'Economy',
 				title	: 'How important is the stability of the financial sector, and government finances'
-			}}) %>
-
-			<%- partial('partials/sliders', { locals: {
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
 				id		: 'car',
 				item	: 'Career',
 				title	: 'How important is the stability of the financial sector, and government finances'
-			}}) %>
-			
-			<%- partial('partials/sliders', { locals: {
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
 				id		: 'edu',
 				item	: 'Education',
 				title	: 'How important is the stability of the financial sector, and government finances'
-			}}) %>
-			<%- partial('partials/sliders', { locals: {
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
 				id		: 'heal',
 				item	: 'Healthcare',
 				title	: 'How important is the stability of the financial sector, and government finances'
-			}}) %>
-			<%- partial('partials/sliders', { locals: {
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
 				id		: 'saf',
 				item	: 'Safety',
 				title	: 'How important is the stability of the financial sector, and government finances'
-			}}) %>
-
-			<label for="rating[safety]">Safety</label> 
-			<div class="input">
-			<select name="rating[safety]">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="rating[freedom]">Freedom & Equality</label> 
-			<div class="input">
-			<select name="rating[freedom]">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-		</div>
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'fre',
+				item	: 'Freedom & Equality',
+				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+			}})
+		%>
+		<%-	
+			partial('partials/sliders', { locals: {
+				id		: 'fre',
+				item	: 'Freedom & Equality',
+				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+			}})			
+		%>
+	</div>
 	</div>
 	</fieldset>
-	
 	
 	<h4>Culture</h4>
 	<fieldset>
 	<div class="row">
 		<div class="leftbar span3">&nbsp;</div>
-		
 		<div class="span12">
-			<label for="rating[diversity]">Cultural Diversity</label> 
-			<div class="input">
-			<select name="rating[diversity]">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
+		<%-
 			
-			<label for="rating[community]">Sense of Community</label> 
-			<div class="input">
-			<select name="rating[community]">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="rating[Artistic/Music Scene]">Artistic/Music Scene</label> 
-			<div class="input">
-			<select name="greenspaces">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="greenspaces">Work-Life Balance</label> 
-			<div class="input">
-			<select name="greenspaces">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
+			partial('partials/sliders', { locals: {
+				id		: 'div',
+				item	: 'Cultural Diversity',
+				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'com',
+				item	: 'Sense of Community',
+				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'art',
+				item	: 'Artistic & Music Scene',
+				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'wrk',
+				item	: 'Work-Life Balance',
+				title	: ''
+			}})
+			
+		%>
+	
 		</div>
 	</div>
 	</fieldset>
@@ -181,31 +161,28 @@
 	<fieldset>
 	<div class="row">
 		<div class="leftbar span3">&nbsp;</div>
-		
 		<div class="span12">
-			<label for="worklife">Public Spaces</label> 
-			<div class="input">
-			<select name="worklife" id="worklife">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
-
-			<label for="culturaldiversity">Climate</label> 
-			<div class="input">
-			<select name="culturaldiversity" id="culturaldiversity">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'pub',
+				item	: 'Public Spaces',
+				title	: ''
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'cli',
+				item	: 'Climate',
+				title	: ''
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'pub',
+				item	: 'Public Spaces',
+				title	: ''
+			}})
+		%>
 		</div>
 	</div>
 	</fieldset>
@@ -215,43 +192,23 @@
 	<fieldset>
 	<div class="row">
 		<div class="leftbar span3">&nbsp;</div>
-		
 		<div class="span12">
-			<label for="worklife">Work-life Balance</label> 
-			<div class="input">
-			<select name="worklife" id="worklife">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
+		<%- 
+			partial('partials/sliders', { locals: {
+				id		: 'clt',
+				item	: 'Cultural Diversity',
+				title	: ''
+			}})
+		%>
+		<%-
+			partial('partials/sliders', { locals: {
+				id		: 'grn',
+				item	: 'Green Spaces',
+				title	: ''
+			}})
 
-			<label for="culturaldiversity">Cultural Diversity</label> 
-			<div class="input">
-			<select name="culturaldiversity" id="culturaldiversity">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
+		%>
 
-			<label for="greenspaces">Green Spaces</label> 
-			<div class="input">
-			<select name="greenspaces">
-				<option>0</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-			</select>
-			</div>
 		</div>
 	</div>
 	</fieldset>

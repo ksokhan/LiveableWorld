@@ -1,17 +1,21 @@
 // geocoding
 //http://maps.googleapis.com/maps/api/geocode/output?parameters
 
+var lvstyle = [ { featureType: "water", stylers: [ { hue: "#0077ff" }, { saturation: -37 }, { lightness: 13 } ] },{ elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative", elementType: "geometry", stylers: [ { lightness: 49 }, { visibility: "simplified" } ] },{ featureType: "poi", stylers: [ { visibility: "off" } ] },{ featureType: "road", stylers: [ { visibility: "off" } ] },{ } ];
+
 var mapOptions = {
   zoom: 2,
   center: new google.maps.LatLng(37.65323,-79.38318),
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   mapTypeControl: false,
   panControl: false,
-  streetViewControl: false
+  streetViewControl: false,
+  styles: lvstyle
 };
 
 var app = {
 	markers : [],
+	circles: [],
 	windows: [], 
 	locations: null,
 	map: new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
@@ -30,13 +34,27 @@ var app = {
 	},
 	set_marker: function(e, i) 
 	{
-		
-		
+		var pos = new google.maps.LatLng(e.locX,e.locY);
 		this.markers[i] = new google.maps.Marker({
-	        position: new google.maps.LatLng(e.locX,e.locY), 
-	        map: app.map,
-	        title: e.cit
+	        position	: pos, 
+	        map			: app.map,
+	        title		: e.cit,
+	        icon		: '/lib/images/pin.png',
+	        shadow		: new google.maps.MarkerImage('/lib/images/pin_shadow.png',null,new google.maps.Point(0,0),new google.maps.Point(8,22)),
+	        flat		: false
 		});
+		
+		var circleOptions = {
+			strokeWeight: 0,
+		    fillColor	: "#f54275",
+		    fillOpacity	: 0.35,
+		    map			: app.map,
+		    center		: pos,
+		    radius		: parseInt(e.count) * 500000
+		}
+		log(circleOptions.radius)
+				
+		this.circles[i] = new google.maps.Circle(circleOptions);
 		
 		this.windows[i] = new google.maps.InfoWindow({
     		content: '<h3>' + e.cit + '</h3><p>'
