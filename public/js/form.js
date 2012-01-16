@@ -92,6 +92,7 @@ $(function() {
 		value:1,
 		max: 40,
 		create: function() {
+			$(this).slider('value', $(this).siblings(':input').val() * 10);
 			$(this).after('<div class="marker one"></div><div class="marker two"></div><div class="marker three"></div>');
 		},
 		stop: function(e, ui) {
@@ -103,11 +104,11 @@ $(function() {
 			// set dropdown value
 			//$(this).siblings('select').val(val / 10);
 	
-			// if its zero, show just a little bit of it.
+			// if its zero, show just a little bit of it. Stylistic change.
 			if (val == 0) val = 1;
 				
 			$(this).slider('value', val);
-			log($(this).siblings(':input').val(parseInt(val/10)));
+			$(this).siblings(':input').val(parseInt(val/10));
 		}
 	});
 

@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.compiler({ src: __dirname + '/public/libs', enable: ['less'], autocompile: true }));
+app.use(express.compiler({ src: __dirname + '/public', enable: ['less'], autocompile: true }));
 app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
