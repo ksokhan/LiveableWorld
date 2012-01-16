@@ -1,20 +1,58 @@
+@bl: #011A49;
+
 body {
 	letter-spacing: 0.02em;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 header {
-	
+ 
 	&.normal {
-		padding: 10px 20px;
-		h1 {
-			font-size: 18px;
-			margin-bottom: 0;
-			line-height: 36px;
+		padding: 5px 20px 0;
+		position: fixed; 
+		z-index: 999;
+		top: 20px;
+		left: 20px; 
+		right: 20px;
+		background: #fff;
+		height: 45px;
+		.border-radius(3px);
+		
+		.divider {
+			position: relative;
+			padding: 0 6px;
+			top: -2px;
+			left: 1px;
+			color: @bl + #888;
+			
 		}
+		.breadcrumbs {
+			display: inline;
+		}
+		
+		.breadcrumbs h1, .breadcrumbs a {
+			font-size: 18px;
+			margin: 0;
+			line-height: 42px;
+			color: #fff;
+			
+			//font-family: 'FamiliarProBold', Helvetica, Arial, sans-serif;
+		}
+		
+		a.current, a.current:hover {
+			color: @bl + #888;
+			text-decoration: none;
+		}
+		h1 { display: inline; }
 	}
 	
 	&.border {
-		border-bottom: solid 1px rgba(0,0,0,0.3);
+		.box-shadow(~"inset 0 1px 0 #1a4ed3, 0 1px 2px rgba(0,0,0,0.4)");
+		
+		#gradient > .vertical(#01247d, @bl);
+		border: solid 1px @bl;
+		border-bottom-color: @bl - #666;
+		
 	}
 	
 	&.big {
@@ -53,6 +91,10 @@ header {
 		line-height: 32px;
 		margin: 0 auto 10px;
 		text-align: center;
+	}
+	
+	.pills {
+		margin-bottom: 0;
 	}
 }
 
@@ -125,26 +167,67 @@ header {
 #browse {
 	
 	header {
-		height: 55px;
-		
-		h1 {float: left;}
+		.btn {
+			-moz-outline: 0;
+			outline: 0;
+			#gradient > .vertical(#0230a1, #011547);
+			color: @bl + #999;
+			text-shadow: none;
+			border: solid 1px @bl;
+			border-bottom: solid 1px @bl - #111;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			margin-top: 3px;
+			
+			//.box-shadow(0 1px 0 darken(@bl, 8%));
+			
+			&:hover {
+				background-position: 0 -5px;
+			}
+		}
 	}
 	
 	.pills {
 		display: block;
 		margin-right: 20px;
 		float: right;
+		margin-top: -1px;
+		
+		a {
+			-moz-outline: 0;
+			outline: 0;
+			color: @bl + #888;
+			text-shadow: none;
+			.border-radius(6px);
+			border: solid 1px transparent;
+			.transition(0.2s);
+			
+			&:hover {
+				#gradient > .vertical(rgba(0,0,0,0),rgba(0,0,0,0.1));
+
+				border: solid 1px @bl - #111;
+				.box-shadow(0 0 3px @bl + #222);
+				color: #fff;
+				.transition(0.2s);
+				
+			}
+		}
+		
+		.active a, a:active {
+			#gradient > .vertical(@bl - #222, @bl - #111);
+			border: solid 1px #01247D;
+			border-bottom-color: @bl + #222;
+			border-top-color: #01247D + #111;
+			.box-shadow(0 0 5px @bl + #222);
+			color: @bl + #888; 
+		}
+		
 	}
 	
 }
 
 
 #map {
-	position: absolute;
-	top: 57px;
-	left: 0;
-	right: 0;
-	bottom: 0px;
 	width: 100%;
 	
 	background: #ddd;

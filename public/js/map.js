@@ -10,7 +10,11 @@ var mapOptions = {
   mapTypeControl: false,
   panControl: false,
   streetViewControl: false,
-  styles: lvstyle
+  styles: lvstyle,
+  zoomControlOptions: {
+     position: google.maps.ControlPosition.LEFT_BOTTOM
+  }
+
 };
 
 var app = {
@@ -50,7 +54,7 @@ var app = {
 		    fillOpacity	: 0.35,
 		    map			: app.map,
 		    center		: pos,
-		    radius		: parseInt(e.count) * 500000
+		    radius		: (e.avg * 100000)
 		}
 		log(circleOptions.radius)
 				
@@ -58,7 +62,7 @@ var app = {
 		
 		this.windows[i] = new google.maps.InfoWindow({
     		content: '<h3>' + e.cit + '</h3><p>'
-    				+ (e.reg ? e.reg + ', ' : '') + e.cnt + '</p>'
+    				+ (e.reg ? e.reg + ', ' : '') + e.cnt + '</p><p>Overall average rating: ' + e.avg.toFixed(1) + '</p>'
 		});
 		
 		google.maps.event.addListener(this.markers[i], 'click', function() {
@@ -69,3 +73,8 @@ var app = {
 
 $(window).load(app.init);
 
+
+$('.pills li').click(function() {
+	$(this).siblings('.active').removeClass('active');
+	$(this).addClass('active');
+});

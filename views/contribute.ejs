@@ -15,7 +15,7 @@
 				<div class="span4">
 					<label for="place[name]">City or Town</label>
 					<div class="input">
-						<input type="text" name="place[name]" id="name" value="" placeholder="Auckland" autocomplete="off" required="required" />
+						<input type="text" name="place[name]" id="name" value="" autocomplete="off" required="required" />
 					</div>
 				</div>
 				<div class="span4">
@@ -105,13 +105,6 @@
 				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
 			}})
 		%>
-		<%-	
-			partial('partials/sliders', { locals: {
-				id		: 'fre',
-				item	: 'Freedom & Equality',
-				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
-			}})			
-		%>
 	</div>
 	</div>
 	</fieldset>
@@ -173,13 +166,6 @@
 			partial('partials/sliders', { locals: {
 				id		: 'cli',
 				item	: 'Climate',
-				title	: ''
-			}})
-		%>
-		<%-
-			partial('partials/sliders', { locals: {
-				id		: 'pub',
-				item	: 'Public Spaces',
 				title	: ''
 			}})
 		%>

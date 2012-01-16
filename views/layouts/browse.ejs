@@ -1,7 +1,12 @@
 <%- partial('global/header') %>
 <body id="browse">
   <header class="<%= header_class %>">
-	<a class="btn back" href="/">Back</a>  <h1><a href="/"><%= header_title %></a></h1>
+	<a class="btn back" href="/">Home</a>
+	<div class="breadcrumbs">
+		<h1><a href="/">Liveable World</a></h1>
+		<span class="divider">&rang;</span>
+		<a class="current">Browse</a>
+	</div>
   	<ul class="pills">
 		<li class="active"><a href="#">Map</a></li>
 		<li><a href="#">Graphs</a></li>
