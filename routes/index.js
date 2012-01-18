@@ -1,43 +1,58 @@
 /*
  * GET home page.
  */
+ 
+ // Globals
+ 
+var gb = {
+	header_title: 'Liveable World',
+	header_description: 'Find the best place to live. Liveable World is an experimental index of the most liveable places on earth through realtime data and collective statistics. Its a new way to examine our world.'		
+}
 
 exports.index = function(req, res){
-	
-  	res.render('home', { 
+	var e = {
 		header_class: 'big',
-		header_title: 'Liveable World',
-		header_description: 'Find the best place to live. Liveable World is an experimental index of the most liveable places on earth through realtime data and collective statistics. Its a new way to examine our world.',
-		layout: 'layouts/home.ejs'
-	});
+		layout: 'layouts/home.ejs',
+		header_title: gb.header_title,
+		header_description: gb.header_description
+	};
+  	res.render('home', e);
 };
 
 exports.browse = function(req, res){
 	var loc = req.params[0] ? req.params[0] : 'map';
+	var e = {
+		header_class: 'bar dark',
+		layout: 'layouts/browse.ejs',
+		header_title: gb.header_title,
+		header_description: gb.header_description
+	};
 	
-  	res.render('browse/' + loc , { 
-		header_class: 'normal border',
-		header_title: 'Liveable World: Browse data',
-		layout: 'layouts/browse.ejs'
-	});
+  	res.render('browse/' + loc , e);
 };
 
 exports.contribute = function(req, res){
-  	res.render('contribute', { 
-		header_class: 'big',
-		header_title: 'Liveable World',
-		header_description: 'Fill out the details below according to how important you feel each category for a place to live. And some additional text to describe the process of filling out the form.',
-		layout: 'layouts/search.ejs'
-	});		
+	var e = { 
+		page_name: 'Contribute',
+		header_class: 'big compressed',
+		layout: 'layouts/search.ejs',
+		header_title: gb.header_title,
+		header_description: gb.header_description
+	};
+
+  	res.render('contribute', e);		
 };
 
 exports.discover = function(req, res){
-  	res.render('discover', { 
-		header_class: 'big',
-		header_title: 'Liveable World',
-		header_description: 'Fill out the details below according to how important you feel each category for a place to live. And some additional text to describe the process of filling out the form.',
-		layout: 'layouts/search.ejs'
-	});		
+	var e = { 
+		page_name: 'Discover',
+		header_class: 'big compressed',
+		layout: 'layouts/search.ejs',
+		header_title: gb.header_title,
+		header_description: gb.header_description
+	};
+	
+  	res.render('discover', e);		
 };
 
 ///////////////////////////////////
@@ -79,7 +94,6 @@ exports.submit_place = function(req, res){
 		},
 		averages: function(avg,new_val,tot) 
 		{
-			console.log('old avg -> '+ avg + '\n tot -> ' + tot + '\n new -> ' + new_val);
 			new_val = (avg * tot + new_val)/ (tot + 1);
 			//new_val = new_val.toFixed(8);// round to 8 decimal points
 			return new_val;

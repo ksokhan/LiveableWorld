@@ -1,5 +1,5 @@
 @bl: #011A49;
-
+@text: Helvetica, Arial, sans-serif;
 body {
 	letter-spacing: 0.02em;
 	font-family: Helvetica, Arial, sans-serif;
@@ -7,7 +7,7 @@ body {
 
 header {
  
-	&.normal {
+	&.bar {
 		padding: 5px 20px 0;
 		position: fixed; 
 		z-index: 999;
@@ -18,12 +18,74 @@ header {
 		height: 45px;
 		.border-radius(3px);
 		
+		&.inline {
+			position: relative;
+			top:0;
+			left: auto; right: auto;
+			width: 920px;
+			margin: 20px auto;
+		}
+		
+		.btn {
+			-moz-outline: 0;
+			outline: 0;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			
+			&.back {
+				margin-top: 5px;	
+				margin-left: -2px;	
+			}	
+		}
+		
+		&.dark {
+			.box-shadow(~"inset 0 1px 0 #1a4ed3, 0 1px 2px rgba(0,0,0,0.4)");
+		
+			#gradient > .vertical(#01247d, @bl);
+			border: solid 1px @bl;
+			border-bottom-color: @bl - #666;
+			
+			.divider {color: @bl + #888;}
+			.breadcrumbs h1, .breadcrumbs a {color: #fff;}
+			a.current, a.current:hover {
+				color: @bl + #888;
+				text-decoration: none;
+			}
+			.btn {
+				#gradient > .vertical(#0230a1, #011547);
+				color: @bl + #999;
+				text-shadow: none;
+				border: solid 1px @bl;
+				border-bottom: solid 1px @bl - #111;
+				&:hover {
+					background-position: 0 -5px;
+				}
+			}
+		}
+		
+		&.light {
+			#gradient > .vertical(#eee, #ddd);
+	  		border: 1px solid #ccc;
+	  		.box-shadow(inset 0 1px 0 @white);
+	  		text-shadow: 0 1px 0 #f5f5f5;
+	  		a.current, a.current:hover {
+				color: #888;
+				text-decoration: none;
+			}
+			.divider {
+				color: #999;
+			}
+			.btn.back {
+				color: #666;
+				&:hover {color: #333}
+			}
+		}
+		
 		.divider {
 			position: relative;
 			padding: 0 6px;
 			top: -2px;
 			left: 1px;
-			color: @bl + #888;
 			
 		}
 		.breadcrumbs {
@@ -34,25 +96,19 @@ header {
 			font-size: 18px;
 			margin: 0;
 			line-height: 42px;
-			color: #fff;
 			
-			//font-family: 'FamiliarProBold', Helvetica, Arial, sans-serif;
 		}
 		
-		a.current, a.current:hover {
-			color: @bl + #888;
-			text-decoration: none;
+		.search {
+			float: right;
+			line-height: 40px;
+			font-family: @text;
+			
+			button {.box-shadow(~"0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0px rgba(0, 0, 0, 0.2)"); font: @text}
+			#search { height: 22px; line-height: 22px;position:relative;top:1px;text-indent: 3px;.box-shadow(0 1px 0 #f5f5f5);}
 		}
+		
 		h1 { display: inline; }
-	}
-	
-	&.border {
-		.box-shadow(~"inset 0 1px 0 #1a4ed3, 0 1px 2px rgba(0,0,0,0.4)");
-		
-		#gradient > .vertical(#01247d, @bl);
-		border: solid 1px @bl;
-		border-bottom-color: @bl - #666;
-		
 	}
 	
 	&.big {
@@ -77,6 +133,14 @@ header {
 			color: #80c7fb;
 			font-size: 1.5em;
 			line-height: 30px;
+		}
+	}
+	
+	&.compressed {
+		height: 300px;
+		
+		h1 {
+			padding-top: 35px;
 		}
 	}
 	
@@ -162,73 +226,3 @@ header {
 
 .btn.right { float: right; }
 
-
-///////////////////////
-#browse {
-	
-	header {
-		.btn {
-			-moz-outline: 0;
-			outline: 0;
-			#gradient > .vertical(#0230a1, #011547);
-			color: @bl + #999;
-			text-shadow: none;
-			border: solid 1px @bl;
-			border-bottom: solid 1px @bl - #111;
-			padding-top: 8px;
-			padding-bottom: 8px;
-			margin-top: 3px;
-			
-			//.box-shadow(0 1px 0 darken(@bl, 8%));
-			
-			&:hover {
-				background-position: 0 -5px;
-			}
-		}
-	}
-	
-	.pills {
-		display: block;
-		margin-right: 20px;
-		float: right;
-		margin-top: -1px;
-		
-		a {
-			-moz-outline: 0;
-			outline: 0;
-			color: @bl + #888;
-			text-shadow: none;
-			.border-radius(6px);
-			border: solid 1px transparent;
-			.transition(0.2s);
-			
-			&:hover {
-				#gradient > .vertical(rgba(0,0,0,0),rgba(0,0,0,0.1));
-
-				border: solid 1px @bl - #111;
-				.box-shadow(0 0 3px @bl + #222);
-				color: #fff;
-				.transition(0.2s);
-				
-			}
-		}
-		
-		.active a, a:active {
-			#gradient > .vertical(@bl - #222, @bl - #111);
-			border: solid 1px #01247D;
-			border-bottom-color: @bl + #222;
-			border-top-color: #01247D + #111;
-			.box-shadow(0 0 5px @bl + #222);
-			color: @bl + #888; 
-		}
-		
-	}
-	
-}
-
-
-#map {
-	width: 100%;
-	
-	background: #ddd;
-}
