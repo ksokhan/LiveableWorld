@@ -1,20 +1,26 @@
+<div id="navbar_wrapper">
 <header class="bar light inline">
-	<a class="btn back" href="/">Home</a>
-	<div class="breadcrumbs">
-		<h1><a href="/"><%= header_title %></a></h1>
-		<span class="divider">&rang;</span>
-		<a class="current"><%= page_name %></a>
+	<div>
+		<a class="btn back" href="/">Home</a>
+		<div class="breadcrumbs">
+			<h1><a href="/"><%= header_title %></a></h1>
+			<span class="divider">&rang;</span>
+			<a class="current"><%= page_name %></a>
+			<span class="divider obj">&rang;</span>
+			<a class="current obj"></a>
+		</div>
+		<!--
+	  	<ul class="pills">
+			<li class="active"><a href="#">Map</a></li>
+			<li><a href="#">Graphs</a></li>
+			<li><a href="#">Compare</a></li>
+		</ul>-->
+		
+		<form class="search">
+			<label class="visuallyhidden" for="search">Find a city:</label> 
+			<input type="text" name="search" value="" placeholder="find a city" id="search"> 	
+			<button class="btn primary" type="submit">Search</button>
+		</form>
 	</div>
-	<!--
-  	<ul class="pills">
-		<li class="active"><a href="#">Map</a></li>
-		<li><a href="#">Graphs</a></li>
-		<li><a href="#">Compare</a></li>
-	</ul>-->
-	
-	<form class="search">
-		<label class="visuallyhidden" for="search">Find a city:</label> 
-		<input type="text" name="search" value="" placeholder="find a city" id="search"> 	
-		<button class="btn primary" type="submit">Search</button>
-	</form>
 </header>
+</div>

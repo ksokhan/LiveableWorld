@@ -25,4 +25,21 @@ $(function() {
   }
   
   
+  // sticky nav bar when scroll past
+  if ($('.bar.inline').length > 0) 
+  {
+    var navbar = $('.bar.inline');
+    var savepos = 0;
+    $(window).bind("scroll resize", function() {
+      var a = $(this).scrollTop();
+      var b = navbar.offset().top;
+      if (a > b - 9) { 
+        navbar.parent().height(navbar.parent().height()); // force height to current height
+        savepos = b; // record position vertically so that we dont have to calculate anymore
+        navbar.addClass('stay');
+      }
+      else if (a < savepos - 10 && savepos != 0) {navbar.removeClass('stay');}
+    }).trigger('resize');
+  }  
+  
 });
