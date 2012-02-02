@@ -2561,6 +2561,11 @@ header.bar.dark {
   border-bottom-color: #000000;
 }
 header.bar.dark .divider {
+  background: '/lib/images/breadcrumb.png' no-repeat;
+  width: 7px;
+  height: 14px;
+  text-indent: -999em;
+  overflow: hidden;
   color: #89a2d1;
 }
 header.bar.dark .breadcrumbs h1, header.bar.dark .breadcrumbs a {
@@ -2613,7 +2618,16 @@ header.bar.light a.current, header.bar.light a.current:hover {
   text-decoration: none;
 }
 header.bar.light .divider {
-  color: #999;
+  background: url('/lib/images/breadcrumb.png') no-repeat;
+  width: 7px;
+  height: 14px;
+  text-indent: -999em;
+  overflow: hidden;
+  color: #888;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: 6px;
 }
 header.bar.light .btn.back {
   color: #666;

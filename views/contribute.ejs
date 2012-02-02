@@ -67,42 +67,42 @@
 			partial('partials/sliders', { locals: {
 				id		: 'econ',
 				item	: 'Economy',
-				title	: 'How important is the stability of the financial sector, and government finances'
+				title	: 'Stability of the financial sector and government finances municipally, regionally, and nationally'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'car',
 				item	: 'Career',
-				title	: 'How important is the stability of the financial sector, and government finances'
+				title	: 'Potential for general career opportunity'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'edu',
 				item	: 'Education',
-				title	: 'How important is the stability of the financial sector, and government finances'
+				title	: 'Quality of the educational system'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'heal',
 				item	: 'Healthcare',
-				title	: 'How important is the stability of the financial sector, and government finances'
+				title	: 'Quality and efficiency of the healthcare system'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'saf',
 				item	: 'Safety',
-				title	: 'How important is the stability of the financial sector, and government finances'
+				title	: 'Average feeling of phyiscal safety and security for individual in city'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'fre',
 				item	: 'Freedom & Equality',
-				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+				title	: 'Level of human rights and freedoms in the region, as defined by the United Nations'
 			}})
 		%>
 	</div>
@@ -119,28 +119,28 @@
 			partial('partials/sliders', { locals: {
 				id		: 'div',
 				item	: 'Cultural Diversity',
-				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+				title	: 'The variety of different cultures and backgrounds within the city'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'com',
 				item	: 'Sense of Community',
-				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+				title	: 'The overall feeling of comraderie within the citizens of the city'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'art',
-				item	: 'Artistic & Music Scene',
-				title	: 'How important are human rights, and equality for all genders, cultures, and religions?'
+				item	: 'Arts & Music Scene',
+				title	: 'The strength and vibrancy of the artistic community'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'wrk',
 				item	: 'Work-Life Balance',
-				title	: ''
+				title	: 'How balanced is the cultural norm for hours spent at work and home'
 			}})
 			
 		%>
@@ -159,42 +159,32 @@
 			partial('partials/sliders', { locals: {
 				id		: 'pub',
 				item	: 'Public Spaces',
-				title	: ''
+				title	: 'The relative amount of parks, community centres, and greenery'
 			}})
 		%>
 		<%-
 			partial('partials/sliders', { locals: {
 				id		: 'cli',
 				item	: 'Climate',
-				title	: ''
-			}})
-		%>
-		</div>
-	</div>
-	</fieldset>
-	
-	
-	<h4>Environment</h4>
-	<fieldset>
-	<div class="row">
-		<div class="leftbar span3">&nbsp;</div>
-		<div class="span12">
-		<%- 
-			partial('partials/sliders', { locals: {
-				id		: 'clt',
-				item	: 'Cultural Diversity',
-				title	: ''
+				title	: 'The comfort level of the weather in terms of temperature, precipitation, and wind'
 			}})
 		%>
 		<%-
+		
 			partial('partials/sliders', { locals: {
-				id		: 'grn',
-				item	: 'Green Spaces',
-				title	: ''
+				id		: 'acc',
+				item	: 'Accessibility',
+				title	: 'The ease of maneuverability of the region&rsquo;s streets, buildings, and public spaces, especially for seniors and the physically impaired'
 			}})
-
 		%>
-
+		<%-
+		
+			partial('partials/sliders', { locals: {
+				id		: 'mob',
+				item	: 'Mobility',
+				title	: 'The ease of travel between locations; is there multiple viable methods of transportation? (e.g. car, bicycle, public transport, walking) '
+			}})
+		%>
 		</div>
 	</div>
 	</fieldset>

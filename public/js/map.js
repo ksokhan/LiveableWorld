@@ -54,7 +54,8 @@ var app = {
 		    fillOpacity	: 0.35,
 		    map			: app.map,
 		    center		: pos,
-		    radius		: (e.avg * 100000)
+		    //radius		: (e.avg * 100000)
+		    radius		: ((e.avg * 100000) ^ 1000)
 		}
 		log(circleOptions.radius)
 				

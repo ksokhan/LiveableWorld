@@ -92,7 +92,8 @@ $(function() {
 		value:1,
 		max: 40,
 		create: function() {
-			$(this).slider('value', $(this).siblings(':input').val() * 10);
+			var slider_val = $(this).siblings(':input').val() * 10 == 0 ? 1 : $(this).siblings(':input').val() * 10;
+			$(this).slider('value', slider_val);
 			$(this).after('<div class="marker one"></div><div class="marker two"></div><div class="marker three"></div>');
 		},
 		stop: function(e, ui) {
