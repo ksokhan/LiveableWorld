@@ -2730,26 +2730,18 @@ header .pills {
 #main_menu ul li a {
   display: block;
   padding: 15px 30px 10px;
-  border-top: solid 4px #ffc40d;
+  border: solid 1px #9dd100;
+  border-bottom-color: #8cc000;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   min-height: 130px;
   position: relative;
-  background-position: 0 -100px;
-  background-repeat: no-repeat !important;
-  background-color: #ffffff;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fafadd), to(#ffffff));
-  background-image: -moz-linear-gradient(top, #fafadd, #ffffff);
-  background-image: -ms-linear-gradient(top, #fafadd, #ffffff);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafadd), color-stop(100%, #ffffff));
-  background-image: -webkit-linear-gradient(top, #fafadd, #ffffff);
-  background-image: -o-linear-gradient(top, #fafadd, #ffffff);
-  background-image: linear-gradient(top, #fafadd, #ffffff);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafadd', endColorstr='#ffffff', GradientType=0);
-  -webkit-transition: all 0.2s linear;
-  -moz-transition: all 0.2s linear;
-  -ms-transition: all 0.2s linear;
-  -o-transition: all 0.2s linear;
-  transition: all 0.2s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -ms-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 #main_menu ul li a:hover, #main_menu ul li a:active {
   text-decoration: none;

@@ -213,15 +213,15 @@ header {
 		list-style: none;
 		li {			
 			a {
+				@col: #9dd100;
 				display: block;
 				padding: 15px 30px 10px;
-				border-top: solid 4px @yellow; 
+				border: solid 1px @col;
+				border-bottom-color: @col - #111;
+				.border-radius(3px);
 				min-height: 130px;
 				position: relative;
-				background-position: 0 -100px;
-				background-repeat: no-repeat !important;
-				#gradient > .vertical(#fafadd,#fff);
-				.transition( all 0.2s linear);
+				.transition( all 0.1s linear);
 				&:hover, &:active {
 					text-decoration: none;	
 					background-position: 0 -20px;
