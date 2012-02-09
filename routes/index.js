@@ -59,7 +59,7 @@ exports.discover = function(req, res){
 /// Post routes
 
 
-exports.database_test = function(req, res){
+exports.pull_data = function(req, res){
 	var e = req.params.id ? req.params.id : 'places';
 	if (e == "places") {
 		places.find().limit(100).toArray(function(err, items){

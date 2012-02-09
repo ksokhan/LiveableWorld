@@ -2730,39 +2730,52 @@ header .pills {
 #main_menu ul li a {
   display: block;
   padding: 15px 30px 10px;
-  border: solid 1px #9dd100;
-  border-bottom-color: #8cc000;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  min-height: 130px;
+  border: solid 1px #f3f3b1;
+  border-bottom-color: #e6e658;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 1px #eeeeee;
+  -moz-box-shadow: 0 1px 1px #eeeeee;
+  box-shadow: 0 1px 1px #eeeeee;
+  min-height: 140px;
   position: relative;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  -ms-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-}
-#main_menu ul li a:hover, #main_menu ul li a:active {
-  text-decoration: none;
-  background-position: 0 -20px;
-  border-top-color: #9dd100;
-}
-#main_menu ul li a:hover h3, #main_menu ul li a:active h3 {
-  color: #4d8900;
-}
-#main_menu ul li a:active h3 {
-  color: #000;
-}
-#main_menu ul li h3 {
-  margin-bottom: 5px;
+  background-color: #fafadd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffe6), to(#fafadd));
+  background-image: -moz-linear-gradient(top, #ffffe6, #fafadd);
+  background-image: -ms-linear-gradient(top, #ffffe6, #fafadd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffe6), color-stop(100%, #fafadd));
+  background-image: -webkit-linear-gradient(top, #ffffe6, #fafadd);
+  background-image: -o-linear-gradient(top, #ffffe6, #fafadd);
+  background-image: linear-gradient(top, #ffffe6, #fafadd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffe6', endColorstr='#fafadd', GradientType=0);
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   -ms-transition: all 0.2s linear;
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-#main_menu ul li h3::after {
+#main_menu ul li a:hover, #main_menu ul li a:active {
+  text-decoration: none;
+  border-color: #eded84;
+}
+#main_menu ul li a:hover h3, #main_menu ul li a:active h3 {
+  color: #455e8d;
+}
+#main_menu ul li a:active h3 {
+  color: #000;
+}
+#main_menu ul li a h3 {
+  margin-bottom: 5px;
+  text-shadow: 0 1px 0 #ffffff;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+#main_menu ul li a h3::after {
   content: ' \2192';
   margin-left: 5px;
 }
@@ -2859,6 +2872,12 @@ header .pills {
   -moz-box-shadow: 0 0 5px #233c6b;
   box-shadow: 0 0 5px #233c6b;
   color: #89a2d1;
+}
+.cityOverlay {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
 }
 .ui-autocomplete.ui-widget {
   z-index: 11 !important;

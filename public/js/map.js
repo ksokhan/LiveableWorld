@@ -17,6 +17,67 @@ var mapOptions = {
 
 };
 
+CityOverlay.prototype = new google.maps.OverlayView();
+
+function CityOverlay(pos, item) {
+
+    // Now initialize all properties.
+    this.pos_ = pos;
+    this.map_ = app.map;
+    this.item_ = item;
+
+    // We define a property to hold the image's div. We'll 
+    // actually create this div upon receipt of the onAdd() 
+    // method so we'll leave it null for now.
+    this.div_ = null;
+
+    // Explicitly call setMap on this overlay
+    this.setMap(app.map);
+}
+
+CityOverlay.prototype.onAdd = function() {
+
+	var div = document.createElement('DIV');
+	$(div).addClass('cityOverlay');
+	
+	var r = Raphael(div);
+	    r.piechart(50, 50, this.item_.avg * 3 + 10, [22,12,19])
+	    .attr({
+		    'opacity': 0.6,
+		    'stroke-width': 0
+	    });
+	    
+	// Set the overlay's div_ property to this DIV
+	this.div_ = div;
+	
+	// We add an overlay to a map via one of the map's panes.
+	// We'll add this overlay to the overlayImage pane.
+	var panes = this.getPanes();
+	panes.overlayLayer.appendChild(div);
+}
+
+CityOverlay.prototype.draw = function() {
+	
+	var overlayProjection = this.getProjection();
+	
+	// Retrieve the southwest and northeast coordinates of this overlay
+	// in latlngs and convert them to pixels coordinates.
+	// We'll use these coordinates to resize the DIV.
+	var pxPos = overlayProjection.fromLatLngToDivPixel(this.pos_);
+	
+	// Resize the image's DIV to fit the indicated dimensions.
+	var div = this.div_;
+	div.style.left = pxPos.x + 'px';
+	div.style.top = pxPos.y + 'px';
+	//div.style.width = (ne.x - sw.x) + 'px';
+	//div.style.height = (sw.y - ne.y) + 'px';
+}
+
+CityOverlay.prototype.onRemove = function() {
+	this.div_.parentNode.removeChild(this.div_);
+	this.div_ = null;
+}
+
 var app = {
 	markers : [],
 	circles: [],
@@ -38,6 +99,9 @@ var app = {
 	},
 	set_marker: function(e, i) 
 	{
+		///////////////////////////
+		// draw marker
+		
 		var pos = new google.maps.LatLng(e.locX,e.locY);
 		this.markers[i] = new google.maps.Marker({
 	        position	: pos, 
@@ -48,19 +112,14 @@ var app = {
 	        flat		: false
 		});
 		
-		var circleOptions = {
-			strokeWeight: 0,
-		    fillColor	: "#f54275",
-		    fillOpacity	: 0.35,
-		    map			: app.map,
-		    center		: pos,
-		    //radius		: (e.avg * 100000)
-		    radius		: ((e.avg * 100000) ^ 1000)
-		}
-		log(circleOptions.radius)
-				
-		this.circles[i] = new google.maps.Circle(circleOptions);
-		
+		///////////////////////////
+		// draw overlay
+	
+	    var overlay = new CityOverlay(pos, e);
+	    
+	    ///////////////////////////
+	    // draw infowindow
+	    
 		this.windows[i] = new google.maps.InfoWindow({
     		content: '<h3>' + e.cit + '</h3><p>'
     				+ (e.reg ? e.reg + ', ' : '') + e.cnt + '</p><p>Overall average rating: ' + e.avg.toFixed(1) + '</p>'
