@@ -16,19 +16,19 @@ exports.index = function(req, res){
 		header_title: gb.header_title,
 		header_description: gb.header_description
 	};
-  	res.render('home', e);
+  	res.render('content/home', e);
 };
 
 exports.browse = function(req, res){
 	var loc = req.params[0] ? req.params[0] : 'map';
 	var e = {
 		header_class: 'bar dark',
-		layout: 'layouts/browse.ejs',
+		layout: 'layouts/map.ejs',
 		header_title: gb.header_title,
 		header_description: gb.header_description
 	};
 	
-  	res.render('browse/' + loc , e);
+  	res.render('content/' + loc, e);
 };
 
 exports.contribute = function(req, res){
@@ -40,7 +40,7 @@ exports.contribute = function(req, res){
 		header_description: gb.header_description
 	};
 
-  	res.render('contribute', e);		
+  	res.render('content/add', e);		
 };
 
 exports.discover = function(req, res){
@@ -52,14 +52,14 @@ exports.discover = function(req, res){
 		header_description: gb.header_description
 	};
 	
-  	res.render('discover', e);		
+  	res.render('content/find', e);		
 };
 
 ///////////////////////////////////
 /// Post routes
 
 
-exports.pull_data = function(req, res){
+exports.ajaxdata = function(req, res){
 	var e = req.params.id ? req.params.id : 'places';
 	if (e == "places") {
 		places.find().limit(100).toArray(function(err, items){

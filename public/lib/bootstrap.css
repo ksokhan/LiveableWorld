@@ -2875,9 +2875,9 @@ header .pills {
 }
 .cityOverlay {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  margin: -50px 0 0 -50px;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
 }
 .ui-autocomplete.ui-widget {
   z-index: 11 !important;

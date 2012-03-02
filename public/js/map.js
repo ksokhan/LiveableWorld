@@ -1,95 +1,51 @@
 // geocoding
 //http://maps.googleapis.com/maps/api/geocode/output?parameters
 
+// depends on google ajax api
+if(google.loader.ClientLocation)
+{
+	visitor_lat = google.loader.ClientLocation.latitude;
+	visitor_lon = google.loader.ClientLocation.longitude;
+	//visitor_city = google.loader.ClientLocation.address.city;
+	//visitor_region = google.loader.ClientLocation.address.region;
+	//visitor_country = google.loader.ClientLocation.address.country;
+	//visitor_countrycode = google.loader.ClientLocation.address.country_code;
+} else {
+	visitor_lat = "37.65323";
+	visitor_lon = "-79.38318";
+}
+
 var lvstyle = [ { featureType: "water", stylers: [ { hue: "#0077ff" }, { saturation: -37 }, { lightness: 13 } ] },{ elementType: "labels", stylers: [ { visibility: "off" } ] },{ featureType: "administrative", elementType: "geometry", stylers: [ { lightness: 49 }, { visibility: "simplified" } ] },{ featureType: "poi", stylers: [ { visibility: "off" } ] },{ featureType: "road", stylers: [ { visibility: "off" } ] },{ } ];
 
 var mapOptions = {
-  zoom: 2,
-  center: new google.maps.LatLng(37.65323,-79.38318),
+  zoom: 3,
+  minZoom: 2,
+  maxZoom: 8,
+  center: new google.maps.LatLng(visitor_lat,visitor_lon),
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   mapTypeControl: false,
   panControl: false,
   streetViewControl: false,
   styles: lvstyle,
   zoomControlOptions: {
-     position: google.maps.ControlPosition.LEFT_BOTTOM
+     position: google.maps.ControlPosition.LEFT_CENTER
   }
 
 };
 
-CityOverlay.prototype = new google.maps.OverlayView();
 
-function CityOverlay(pos, item) {
-
-    // Now initialize all properties.
-    this.pos_ = pos;
-    this.map_ = app.map;
-    this.item_ = item;
-
-    // We define a property to hold the image's div. We'll 
-    // actually create this div upon receipt of the onAdd() 
-    // method so we'll leave it null for now.
-    this.div_ = null;
-
-    // Explicitly call setMap on this overlay
-    this.setMap(app.map);
-}
-
-CityOverlay.prototype.onAdd = function() {
-
-	var div = document.createElement('DIV');
-	$(div).addClass('cityOverlay');
-	
-	var r = Raphael(div);
-	    r.piechart(50, 50, this.item_.avg * 3 + 10, [22,12,19])
-	    .attr({
-		    'opacity': 0.6,
-		    'stroke-width': 0
-	    });
-	    
-	// Set the overlay's div_ property to this DIV
-	this.div_ = div;
-	
-	// We add an overlay to a map via one of the map's panes.
-	// We'll add this overlay to the overlayImage pane.
-	var panes = this.getPanes();
-	panes.overlayLayer.appendChild(div);
-}
-
-CityOverlay.prototype.draw = function() {
-	
-	var overlayProjection = this.getProjection();
-	
-	// Retrieve the southwest and northeast coordinates of this overlay
-	// in latlngs and convert them to pixels coordinates.
-	// We'll use these coordinates to resize the DIV.
-	var pxPos = overlayProjection.fromLatLngToDivPixel(this.pos_);
-	
-	// Resize the image's DIV to fit the indicated dimensions.
-	var div = this.div_;
-	div.style.left = pxPos.x + 'px';
-	div.style.top = pxPos.y + 'px';
-	//div.style.width = (ne.x - sw.x) + 'px';
-	//div.style.height = (sw.y - ne.y) + 'px';
-}
-
-CityOverlay.prototype.onRemove = function() {
-	this.div_.parentNode.removeChild(this.div_);
-	this.div_ = null;
-}
+////////////////////////////////
+// Main App object
 
 var app = {
+	zoomOverlayTo: 2, // map starts off at 2, so lets just set it here anyway.
 	markers : [],
 	circles: [],
 	windows: [], 
 	locations: null,
+	boundary: new google.maps.LatLngBounds(new google.maps.LatLng(-90,-180), new google.maps.LatLng(90,180)),
 	map: new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
-	init: function() 
-	{
-		app.get_data();
-		//app.set_marker(37.65323,-79.38318);
-	},
-	get_data: function() {
+	init: function() {
 		$.getJSON('/data/places', function(data) { 
 			app.locations = data;
 			$.each(app.locations, function(key) {
@@ -99,9 +55,9 @@ var app = {
 	},
 	set_marker: function(e, i) 
 	{
+		
 		///////////////////////////
 		// draw marker
-		
 		var pos = new google.maps.LatLng(e.locX,e.locY);
 		this.markers[i] = new google.maps.Marker({
 	        position	: pos, 
@@ -114,9 +70,8 @@ var app = {
 		
 		///////////////////////////
 		// draw overlay
-	
 	    var overlay = new CityOverlay(pos, e);
-	    
+	
 	    ///////////////////////////
 	    // draw infowindow
 	    
@@ -129,6 +84,27 @@ var app = {
   			app.windows[i].open(app.map,app.markers[i]);
 		});
 	}
+}
+
+// limit world scroll? not working... 
+app.map.center_changed = function() {
+	if(! app.boundary.contains(app.map.getCenter())) {
+      var C = app.map.getCenter();
+      var X = C.lng();
+      var Y = C.lat();
+	
+      var AmaxX = app.boundary.getNorthEast().lng();
+      var AmaxY = app.boundary.getNorthEast().lat();
+      var AminX = app.boundary.getSouthWest().lng();
+      var AminY = app.boundary.getSouthWest().lat();
+
+      if (X < AminX) {X = AminX;}
+      if (X > AmaxX) {X = AmaxX;}
+      if (Y < AminY) {Y = AminY;}
+      if (Y > AmaxY) {Y = AmaxY;}
+
+      //app.map.setCenter(new google.maps.LatLng(Y,X));
+    }
 }
 
 $(window).load(app.init);
