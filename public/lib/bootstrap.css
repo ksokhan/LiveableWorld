@@ -405,6 +405,14 @@ a:hover {
 /* Typography.less
  * Headings, body text, lists, code, and more for a versatile and durable typography system
  * ---------------------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'WebSymbolsRegular';
+  src: url('/lib/fonts/websymbols-regular-webfont.eot');
+  src: url('/lib/fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'), url('/lib/fonts/websymbols-regular-webfont.woff') format('woff'), url('/lib/fonts/websymbols-regular-webfont.ttf') format('truetype'), url('/lib/fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+}
+.icon {
+  font-family: WebSymbolsRegular;
+}
 p {
   font-size: 13px;
   font-weight: normal;
@@ -2645,7 +2653,7 @@ header.bar .breadcrumbs {
   display: inline;
 }
 header.bar .breadcrumbs h1, header.bar .breadcrumbs a {
-  font-size: 18px;
+  font-size: 14px;
   margin: 0;
   line-height: 42px;
 }
@@ -2738,7 +2746,7 @@ header .pills {
   -webkit-box-shadow: 0 1px 1px #eeeeee;
   -moz-box-shadow: 0 1px 1px #eeeeee;
   box-shadow: 0 1px 1px #eeeeee;
-  min-height: 140px;
+  min-height: 100px;
   position: relative;
   background-color: #fafadd;
   background-repeat: repeat-x;
@@ -2803,10 +2811,12 @@ header .pills {
   float: left;
   margin: 5px 20px 0 0;
   display: block;
+  font-weight: bold;
 }
 #map {
   width: 100%;
   background: #ddd;
+  height: 100%;
 }
 #browse footer {
   display: none;
@@ -2816,6 +2826,14 @@ header .pills {
   margin-right: 20px;
   float: right;
   margin-top: -1px;
+}
+#browse .pills .icon {
+  /*color: #fff;*/
+
+  font-size: 0.8em;
+  position: relative;
+  top: -2px;
+  left: -2px;
 }
 #browse .pills a {
   -moz-outline: 0;

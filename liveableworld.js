@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var express = require('express'), 
+var express = require('express'),
     routes = require('./routes'),
 	mongo = require('mongoskin');
 
@@ -21,11 +21,11 @@ app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
 app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
 /*app.configure('production', function(){
-  app.use(express.errorHandler()); 
+  app.use(express.errorHandler());
 });*/
 
 

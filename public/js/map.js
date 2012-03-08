@@ -41,58 +41,59 @@ var app = {
 	zoomOverlayTo: 2, // map starts off at 2, so lets just set it here anyway.
 	markers : [],
 	circles: [],
-	windows: [], 
+	windows: [],
 	locations: null,
 	boundary: new google.maps.LatLngBounds(new google.maps.LatLng(-90,-180), new google.maps.LatLng(90,180)),
-	map: new google.maps.Map(document.getElementById("map_canvas"), mapOptions),
+	map: new google.maps.Map(document.getElementById("map"), mapOptions),
 	init: function() {
-		$.getJSON('/data/places', function(data) { 
+		$.getJSON('/data/places', function(data) {
 			app.locations = data;
 			$.each(app.locations, function(key) {
 			    app.set_marker(this, key);
 			});
+			nav.status = true; // done loading app
 		});
 	},
-	set_marker: function(e, i) 
+	set_marker: function(e, i)
 	{
-		
+
 		///////////////////////////
 		// draw marker
 		var pos = new google.maps.LatLng(e.locX,e.locY);
 		this.markers[i] = new google.maps.Marker({
-	        position	: pos, 
+	        position	: pos,
 	        map			: app.map,
 	        title		: e.cit,
 	        icon		: '/lib/images/pin.png',
 	        shadow		: new google.maps.MarkerImage('/lib/images/pin_shadow.png',null,new google.maps.Point(0,0),new google.maps.Point(8,22)),
 	        flat		: false
 		});
-		
+
 		///////////////////////////
 		// draw overlay
 	    var overlay = new CityOverlay(pos, e);
-	
+
 	    ///////////////////////////
 	    // draw infowindow
-	    
+
 		this.windows[i] = new google.maps.InfoWindow({
     		content: '<h3>' + e.cit + '</h3><p>'
     				+ (e.reg ? e.reg + ', ' : '') + e.cnt + '</p><p>Overall average rating: ' + e.avg.toFixed(1) + '</p>'
 		});
-		
+
 		google.maps.event.addListener(this.markers[i], 'click', function() {
   			app.windows[i].open(app.map,app.markers[i]);
 		});
 	}
 }
 
-// limit world scroll? not working... 
+// limit world scroll? not working...
 app.map.center_changed = function() {
 	if(! app.boundary.contains(app.map.getCenter())) {
       var C = app.map.getCenter();
       var X = C.lng();
       var Y = C.lat();
-	
+
       var AmaxX = app.boundary.getNorthEast().lng();
       var AmaxY = app.boundary.getNorthEast().lat();
       var AminX = app.boundary.getSouthWest().lng();
@@ -110,7 +111,22 @@ app.map.center_changed = function() {
 $(window).load(app.init);
 
 
+var nav = {
+    // false when something is loading... so block all events
+    status: false
+}
+
+
+
 $('.pills li').click(function() {
+	if (!nav.status) return false;
+
 	$(this).siblings('.active').removeClass('active');
 	$(this).addClass('active');
+
+
+	$('.section.active').hide().removeClass('active');
+
+	var loc = $(this).find('a').attr('href');
+	$(loc).show().addClass('active');
 });

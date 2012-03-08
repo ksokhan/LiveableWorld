@@ -4,29 +4,39 @@
 	float: left;
 	margin: 5px 20px 0 0;
 	display: block;
+	font-weight: bold;
 }
 
 
 ///////////////////////
-// Browse Page 
+// Browse Page
 
 
 #map {
 	width: 100%;
 	background: #ddd;
+	height: 100%;
 }
 
 #browse {
 	footer {
 		display: none;
 	}
-	
+
 	.pills {
 		display: block;
 		margin-right: 20px;
 		float: right;
 		margin-top: -1px;
-		
+
+		.icon {
+		    /*color: #fff;*/
+		    font-size: 0.8em;
+		    position: relative;
+		    top: -2px;
+		    left: -2px;
+		}
+
 		a {
 			-moz-outline: 0;
 			outline: 0;
@@ -35,7 +45,7 @@
 			.border-radius(6px);
 			border: solid 1px transparent;
 			.transition(0.2s);
-			
+
 			&:hover {
 				#gradient > .vertical(rgba(0,0,0,0),rgba(0,0,0,0.1));
 
@@ -43,20 +53,20 @@
 				.box-shadow(0 0 3px @bl + #222);
 				color: #fff;
 				.transition(0.2s);
-				
+
 			}
 		}
-		
+
 		.active a, a:active {
 			#gradient > .vertical(@bl - #222, @bl - #111);
 			border: solid 1px #01247D;
 			border-bottom-color: @bl + #222;
 			border-top-color: #01247D + #111;
 			.box-shadow(0 0 5px @bl + #222);
-			color: @bl + #888; 
+			color: @bl + #888;
 		}
-		
+
 	}
-	
+
 }
 
