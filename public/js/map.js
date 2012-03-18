@@ -109,24 +109,3 @@ app.map.center_changed = function() {
 }
 
 $(window).load(app.init);
-
-
-var nav = {
-    // false when something is loading... so block all events
-    status: false
-}
-
-
-
-$('.pills li').click(function() {
-	if (!nav.status) return false;
-
-	$(this).siblings('.active').removeClass('active');
-	$(this).addClass('active');
-
-
-	$('.section.active').hide().removeClass('active');
-
-	var loc = $(this).find('a').attr('href');
-	$(loc).show().addClass('active');
-});

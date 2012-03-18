@@ -1,6 +1,20 @@
 
 <div id="map" class="section active" style="width:100%; height:100%"></div>
-<div id="graphs" class="section"> Graphs...</div>
+<div id="graphs" class="section">
+	<div class="row span16">
+		<div class="span4">
+			<h2>Cities</h2>
+			<ul id="names">
+
+			</ul>
+		</div>
+		<div class="span6">
+			<h2>Overall Liveability</h2>
+			<div id="graph-holder"></div>
+		</div>
+	</div>
+
+</div>
 
 <script type="text/javascript"
     src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC1ZJwQNRaDXH1u9Cek2qkkW73RvqA9Vw8&sensor=true">
@@ -13,3 +27,31 @@
 
 <script type="text/javascript" src="/js/map.js"></script>
 <script type="text/javascript" src="/js/map.piechart.js"></script>
+
+<script type="text/javascript" src="/js/raphael/g.bar-min.js"></script>
+<script type="text/javascript" src="/js/graph.js"></script>
+
+<script type="text/javascript">
+	var nav = {
+	    // false when something is loading... so block all events
+	    status: false
+	}
+
+	$('.pills li').click(function() {
+		if (!nav.status) return false;
+
+		// update pill boxes
+		$(this).siblings('.active').removeClass('active');
+		$(this).addClass('active');
+
+		// show the page div
+		$('.section.active').hide().removeClass('active');
+		var loc = $(this).find('a').attr('href');
+		$(loc).show().addClass('active');
+
+		// load graph
+		if (loc == "#graphs") {
+			graph.draw();
+		}
+	});
+</script>

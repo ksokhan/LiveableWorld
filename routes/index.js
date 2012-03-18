@@ -1,12 +1,12 @@
 /*
  * GET home page.
  */
- 
+
  // Globals
- 
+
 var gb = {
 	header_title: 'Liveable World',
-	header_description: 'Find the best place to live. Liveable World is an experimental index of the most liveable places on earth through realtime data and collective statistics. Its a new way to examine our world.'		
+	header_description: 'Find the best place to live. Liveable World is an index of the most liveable places on earth. <a href="./about">Learn more</a> about why its different.'
 }
 
 exports.index = function(req, res){
@@ -27,12 +27,12 @@ exports.browse = function(req, res){
 		header_title: gb.header_title,
 		header_description: gb.header_description
 	};
-	
+
   	res.render('content/' + loc, e);
 };
 
 exports.contribute = function(req, res){
-	var e = { 
+	var e = {
 		page_name: 'Contribute',
 		header_class: 'big compressed',
 		layout: 'layouts/search.ejs',
@@ -40,19 +40,19 @@ exports.contribute = function(req, res){
 		header_description: gb.header_description
 	};
 
-  	res.render('content/add', e);		
+  	res.render('content/add', e);
 };
 
 exports.discover = function(req, res){
-	var e = { 
+	var e = {
 		page_name: 'Discover',
 		header_class: 'big compressed',
 		layout: 'layouts/search.ejs',
 		header_title: gb.header_title,
 		header_description: gb.header_description
 	};
-	
-  	res.render('content/find', e);		
+
+  	res.render('content/find', e);
 };
 
 ///////////////////////////////////
@@ -84,7 +84,7 @@ exports.database_clear = function(req, res){
 exports.submit_place = function(req, res){
 	/*
 		Calculate Averages
-	*/ 
+	*/
 	calc = {
 		submission_average: function(e, subm) {
 			// divide by number of questions
@@ -92,34 +92,34 @@ exports.submit_place = function(req, res){
 			e = e / question_num;
 			return this.averages(subm.avg, e, subm.count);
 		},
-		averages: function(avg,new_val,tot) 
+		averages: function(avg,new_val,tot)
 		{
 			new_val = (avg * tot + new_val)/ (tot + 1);
 			//new_val = new_val.toFixed(8);// round to 8 decimal points
 			return new_val;
-		}	
+		}
 	}
-	
+
 	var p = req.body.place;
 	var r = req.body.rating;
-	
+
 	var question_num 	= 14,
 		submission_avg 	= 0,
 		item_id 		= p.locX + "-" + p.locY,
 		avgs 			= {};
-	
+
 	// get data and parse the new value for averages
 	places.find({loc: item_id}).limit(1).each(function(err, subm) {
 		if (subm == undefined) var subm = {'count': 0, 'avg': 0};
-		
-		for (key in r) 
+
+		for (key in r)
 		{
 			// convert to string
 			r[key] = parseInt(r[key]);
 			// calculate total of all values
 			submission_avg += r[key];
-					
-			// update averages to new ones 
+
+			// update averages to new ones
 			// (calculate average without individual values) = multiply base num by number of items then add one and divide
 			// first time city is added, create a blank subm
 			if (subm[key] == undefined) subm[key] = 0; // if undefined, set as 0
@@ -127,36 +127,36 @@ exports.submit_place = function(req, res){
 		}
 
 		submission_avg = calc.submission_average(submission_avg, subm);
-		
+
 		// if the place is in db already, then fine. if not, then add.
 		// inc counts the number of submissions.
 		places.update(
 			{
-				loc		: item_id, 
-				cit		: p.name, 
-				reg		: p.region, 
-				cnt		: p.country, 
-				locX	: p.locX, 
+				loc		: item_id,
+				cit		: p.name,
+				reg		: p.region,
+				cnt		: p.country,
+				locX	: p.locX,
 				locY	: p.locY
-			}, 
-			{ 
+			},
+			{
 				$inc: { count : 1 },
 				$set: { averages  : avgs, avg: submission_avg }
-			}, 
+			},
 			{ upsert: true }
 		);
-		
+
 		console.log(submission_avg);
-		
+
 		// save rating data into corresponding city object, appending to the appropriate arrays!
 		submissions.update(
-			{loc : item_id}, 
-			{ 
+			{loc : item_id},
+			{
 				$push: 	r
 			},
 			{ upsert: true }
 		);
 	});
-	
+
   	res.redirect('/browse');
 };

@@ -2,11 +2,11 @@
 <body>
   <header class="<%= header_class %>">
 	<h1><a href="/"><%= header_title %></a></h1>
-	
-	<% if (header_description) { %> 
-		<h3><%= header_description %></h3>
+
+	<% if (header_description) { %>
+		<h3><%- header_description %></h3>
 	<% } %>
-  
+
   </header>
 
 <%- body %>

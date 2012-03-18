@@ -2791,6 +2791,17 @@ header .pills {
   color: #999;
   line-height: 160%;
 }
+.section {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.section.active {
+  display: block;
+}
 #main {
   max-width: 960px;
   margin: 20px auto;
@@ -2813,6 +2824,15 @@ header .pills {
   display: block;
   font-weight: bold;
 }
+.back .icon {
+  font-weight: 400;
+}
+.cityOverlay {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+}
 #map {
   width: 100%;
   background: #ddd;
@@ -2834,6 +2854,7 @@ header .pills {
   position: relative;
   top: -2px;
   left: -2px;
+  font-weight: 400;
 }
 #browse .pills a {
   -moz-outline: 0;
@@ -2891,11 +2912,19 @@ header .pills {
   box-shadow: 0 0 5px #233c6b;
   color: #89a2d1;
 }
-.cityOverlay {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  margin: -100px 0 0 -100px;
+#graphs {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 100px 20px 40px;
+}
+#graphs h2 {
+  color: #0069d6;
+  font-weight: normal;
+}
+#graphs #graph-holder {
+  margin-left: -10px;
 }
 .ui-autocomplete.ui-widget {
   z-index: 11 !important;

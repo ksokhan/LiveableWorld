@@ -5,12 +5,20 @@
 	margin: 5px 20px 0 0;
 	display: block;
 	font-weight: bold;
+
+	.icon { font-weight: 400; }
 }
 
 
 ///////////////////////
 // Browse Page
 
+.cityOverlay {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	margin: -100px 0 0 -100px;
+}
 
 #map {
 	width: 100%;
@@ -35,6 +43,7 @@
 		    position: relative;
 		    top: -2px;
 		    left: -2px;
+		    font-weight: 400;
 		}
 
 		a {
@@ -70,3 +79,26 @@
 
 }
 
+////////////////////////////
+// Graphs
+
+#graphs {
+	.box-sizing(border-box);
+	padding: 100px 20px 40px;
+
+	h2 {
+		color: @blu;
+		font-weight: normal;
+
+	}
+
+	&>.row {
+
+	}
+
+	#graph-holder {
+		margin-left: -10px;
+	}
+
+
+}
