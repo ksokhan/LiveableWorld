@@ -146,7 +146,7 @@ exports.submit_place = function(req, res){
 			{ upsert: true }
 		);
 
-		console.log(submission_avg);
+		//console.log(submission_avg);
 
 		// save rating data into corresponding city object, appending to the appropriate arrays!
 		submissions.update(

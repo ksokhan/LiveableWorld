@@ -1,31 +1,3 @@
-/*!
- * Bootstrap @VERSION
- *
- * Copyright 2011 Twitter, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Date: @DATE
- */
-
-/* CSS Reset */
-@import "public/lib/reset";
-
-/* Core variables and mixins */
-@import "public/lib/variables"; /* Modify this for custom colors, font-sizes, etc */
-@import "public/lib/mixins";
-
-/* Grid system and page structure */
-@import "public/lib/scaffolding";
-
-/* Styled patterns and elements */
-
-@import "public/lib/type";
-@import "public/lib/forms";
-@import "public/lib/tables";
-@import "public/lib/patterns";
-
 
 @font-face {
     font-family: 'FamiliarProBold';
@@ -36,10 +8,77 @@
          url('/lib/fonts/Familiar_Pro-Bold-webfont.svg#FamiliarProBold') format('svg');
     font-weight: bold;
     font-style: normal;
-
 }
+
+@font-face{
+    font-family: 'WebSymbolsRegular';
+    src: url('/lib/fonts/websymbols-regular-webfont.eot');
+    src: url('/lib/fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	 url('/lib/fonts/websymbols-regular-webfont.woff') format('woff'),
+	 url('/lib/fonts/websymbols-regular-webfont.ttf') format('truetype'),
+	 url('/lib/fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+}
+
+.icon {
+    font-family: WebSymbolsRegular;
+}
+
+// CSS Reset
+@import "public/lib/reset.less";
+
+// Core variables and mixins
+@import "public/lib/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "public/lib/mixins.less";
+@import "public/lib/patterns.less";
+
+// Grid system and page structure
+@import "public/lib/scaffolding.less";
+
+// Base CSS
+@import "public/lib/type.less";
+@import "public/lib/tables.less";
+//@import "public/lib/bootstrap_v2/code.less";
+@import "public/lib/forms.less";
+//@import "public/lib/bootstrap_v2/tables.less";
+
+// Components: common
+//@import "public/lib/bootstrap_v2/sprites.less";
+//@import "public/lib/bootstrap_v2/dropdowns.less";
+//@import "public/lib/bootstrap_v2/wells.less";
+//@import "public/lib/bootstrap_v2/component-animations.less";
+//@import "public/lib/bootstrap_v2/close.less";
+
+// Components: Buttons & Alerts
+//@import "public/lib/bootstrap_v2/buttons.less";
+//@import "public/lib/bootstrap_v2/button-groups.less";
+//@import "public/lib/bootstrap_v2/alerts.less"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
+
+// Components: Nav
+//@import "public/lib/bootstrap_v2/navs.less";
+//@import "public/lib/bootstrap_v2/navbar.less";
+//@import "public/lib/bootstrap_v2/breadcrumbs.less";
+//@import "public/lib/bootstrap_v2/pagination.less";
+//@import "public/lib/bootstrap_v2/pager.less";
+
+// Components: Popovers
+//@import "public/lib/bootstrap_v2/modals.less";
+//@import "public/lib/bootstrap_v2/tooltip.less";
+//@import "public/lib/bootstrap_v2/popovers.less";
+
+// Components: Misc
+//@import "thumbnails.less";
+//@import "public/lib/bootstrap_v2/labels.less";
+//@import "public/lib/bootstrap_v2/badges.less";
+//@import "public/lib/bootstrap_v2/progress-bars.less";
+//@import "public/lib/bootstrap_v2/accordion.less";
+//@import "public/lib/bootstrap_v2/carousel.less";
+//@import "public/lib/bootstrap_v2/hero-unit.less";
+
 
 @import "public/lib/_structure";
 @import "public/lib/_browse";
 @import "public/lib/_form";
 @import "public/lib/_media";
+
+// Utility classes
+////@import "public/lib/bootstrap_v2/utilities.less"; // Has to be last to override when necessary

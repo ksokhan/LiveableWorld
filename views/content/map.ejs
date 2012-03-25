@@ -1,19 +1,15 @@
 
 <div id="map" class="section active" style="width:100%; height:100%"></div>
 <div id="graphs" class="section">
-	<div class="row span16">
-		<div class="span4">
-			<h2>Cities</h2>
-			<ul id="names">
-
-			</ul>
-		</div>
-		<div class="span6">
-			<h2>Overall Liveability</h2>
-			<div id="graph-holder"></div>
-		</div>
-	</div>
-
+		<table id="graphTable">
+			<tr>
+				<th>City</th>
+				<th>Liveability</th>
+				<th>Infrastructure</th>
+				<th>Culture</th>
+				<th>Environment</th>
+			</tr>
+		</table>
 </div>
 
 <script type="text/javascript"
@@ -27,8 +23,9 @@
 
 <script type="text/javascript" src="/js/map.js"></script>
 <script type="text/javascript" src="/js/map.piechart.js"></script>
-
 <script type="text/javascript" src="/js/raphael/g.bar-min.js"></script>
+<script type="text/javascript" src="/js/graph.tablesorter.js"></script>
+
 <script type="text/javascript" src="/js/graph.js"></script>
 
 <script type="text/javascript">
