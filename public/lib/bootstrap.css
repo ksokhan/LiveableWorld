@@ -3065,6 +3065,26 @@ header .pills {
   z-index: 11 !important;
   font-size: 1.1em;
 }
+.pagination_page {
+  zoom: 1;
+  clear: both;
+}
+.pagination_page:before,
+.pagination_page:after {
+  display: table;
+  content: "";
+  zoom: 1;
+}
+.pagination_page:after {
+  clear: both;
+}
+.pagination {
+  text-align: center;
+}
+.pagination ul {
+  display: inline-block;
+  float: none;
+}
 form {
   padding-bottom: 20px;
 }
