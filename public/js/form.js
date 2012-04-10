@@ -137,23 +137,22 @@ $(function() {
 		$('.pagination').find('a[href=' + el + "]").parent().not('.btns').addClass('active');
 
 		// rig next and back buttons
-		setTimeout(function() {
-			$('.pagination .prev a').attr('href', $('.pagination').find('.active').prev().children('a').attr('href'));
-			$('.pagination .next a').attr('href', $('.pagination').find('.active').next().children('a').attr('href'));
 
-			// check if next and back need to be disabled...
-			if (cur.prev().not('.btns').children('a').attr('href') == $('.pagination .prev a').attr('href')) {
-				$('.pagination .prev').addClass('disabled');
-			} else {
-				$('.pagination .prev').removeClass('disabled');
-			}
+		$('.pagination .prev a').attr('href', $('.pagination').find('.active').prev().children('a').attr('href'));
+		$('.pagination .next a').attr('href', $('.pagination').find('.active').next().children('a').attr('href'));
 
-			if (cur.next().not('.btns').children('a').attr('href') == $('.pagination .next a').attr('href')) {
-				$('.pagination .next').addClass('disabled');
-			} else {
-				$('.pagination .next').removeClass('disabled');
-			}
-		}, 0);
+		// check if next and back need to be disabled...
+		if (cur.prev().not('.btns').children('a').attr('href') == $('.pagination .prev a').attr('href')) {
+			$('.pagination .prev').addClass('disabled');
+		} else {
+			$('.pagination .prev').removeClass('disabled');
+		}
+
+		if (cur.next().not('.btns').children('a').attr('href') == $('.pagination .next a').attr('href')) {
+			$('.pagination .next').addClass('disabled');
+		} else {
+			$('.pagination .next').removeClass('disabled');
+		}
 
 	}
 

@@ -45,9 +45,18 @@ var app = {
 	locations: null,
 	boundary: new google.maps.LatLngBounds(new google.maps.LatLng(-90,-180), new google.maps.LatLng(90,180)),
 	map: new google.maps.Map(document.getElementById("map"), mapOptions),
+	calc_averages: function(data) {
+	    $.each(data, function(key, d) {
+	    	this.sect_avg = {};
+	    	this.sect_avg.infrastructure = (this.averages.econ + this.averages.car + this.averages.edu + this.averages.heal + this.averages.saf + this.averages.fre) / 6;
+	    	this.sect_avg.culture = (this.averages.div + this.averages.com + this.averages.art + this.averages.wrk ) / 4;
+	    	this.sect_avg.environment = (this.averages.pub + this.averages.cli + this.averages.acc + this.averages.mob ) / 4;
+	    });
+		return data;
+	},
 	init: function() {
 		$.getJSON('/data/places', function(data) {
-			app.locations = data;
+			app.locations = app.calc_averages(data);
 			$.each(app.locations, function(key) {
 			    app.set_marker(this, key);
 			});
@@ -75,10 +84,10 @@ var app = {
 
 	    ///////////////////////////
 	    // draw infowindow
-
+	    console.log(e);
+	    var html = new EJS({url: '/templates/browse.map.popup.ejs'}).render({e: e});
 		this.windows[i] = new google.maps.InfoWindow({
-    		content: '<h3>' + e.cit + '</h3><p>'
-    				+ (e.reg ? e.reg + ', ' : '') + e.cnt + '</p><p>Overall average rating: ' + e.avg.toFixed(1) + '</p>'
+    		content: html
 		});
 
 		google.maps.event.addListener(this.markers[i], 'click', function() {

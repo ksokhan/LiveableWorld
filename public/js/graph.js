@@ -26,10 +26,10 @@ var graph = {
 			infra = this.averages.econ;
 			$('<tr></tr>')
 				.append("<td class='city'>" + this.cit + ", " + this.reg + ", " + this.cnt + "</td>")
-				.append("<td><div class='avg'><div style='width: " + this.avg * 25 + "%'>" + Math.round(this.avg * 10)/10 + "</div></div></td>")
-				.append("<td><div class='avg'><div style='width: " + infra * 25 + "%'></div></div></td>")
-				.append("<td><div class='avg'><div style='width: " + this.avg * 25 + "%'></div></div></td>")
-				.append("<td><div class='avg'><div style='width: " + this.avg * 25 + "%'></div></div></td>")
+				.append("<td><div class='avg liveability'><div style='width: " + this.avg * 25 + "%'>" + Math.round(this.avg * 10)/10 + "</div></div></td>")
+				.append("<td><div class='avg infra'><div style='width: " + infra * 25 + "%'></div></div></td>")
+				.append("<td><div class='avg culture'><div style='width: " + this.avg * 25 + "%'></div></div></td>")
+				.append("<td><div class='avg environ'><div style='width: " + this.avg * 25 + "%'></div></div></td>")
 				.appendTo('#graphTable');
 
 			dat.push(this.avg);

@@ -2,7 +2,9 @@ CityOverlay.prototype = new google.maps.OverlayView();
 
 function makePie(e) {
 	e.r_ = Raphael(e.div_);
-	return e.r_.piechart(100, 100, e.item_.avg * Math.pow(app.map.getZoom(),1.4), [22,12,19], {colors:["#ff0000","#ff6060","#ff9c9c"]})
+	av = e.item_.sect_avg;
+
+	return e.r_.piechart(100, 100, e.item_.avg * Math.pow(app.map.getZoom(),1.4), [av.infrastructure,av.culture,av.environment], {colors:["#ff0000","#ff6060","#ff9c9c"]})
 		.attr({
 			'opacity': 0.6,
 			'stroke-width': 0,
@@ -25,7 +27,7 @@ function CityOverlay(pos, item) {
 CityOverlay.prototype.onAdd = function() {
 	var div = document.createElement('DIV');
 	$(div).addClass('cityOverlay');
-	this.div_ = div; // Set the overlay's div_ property to this DIV 
+	this.div_ = div; // Set the overlay's div_ property to this DIV
 	this.pie_ = makePie(this); // create the pie chart
 	var panes = this.getPanes();
 	panes.overlayLayer.appendChild(div); // insert the div to the google maps pane
@@ -39,12 +41,12 @@ CityOverlay.prototype.zoomChange = function() {
 CityOverlay.prototype.draw = function() {
 	var overlayProjection = this.getProjection();
 	var pxPos = overlayProjection.fromLatLngToDivPixel(this.pos_);
-	
+
 	// Resize the image's DIV to fit the indicated dimensions.
 	var div = this.div_;
 	div.style.left = pxPos.x + 'px';
 	div.style.top = pxPos.y + 'px';
-	
+
 	if (app.zoomOverlayTo != app.map.getZoom()) { this.zoomChange(); }
 }
 
