@@ -2,7 +2,7 @@
 
 <form class="contrib clearfix" method="post" action="/contribute/submit">
 	<div class="pagination_page" id="page_one">
-		<h2><em>Step 1 </em>First, The Formalities</h2>
+		<h2>First, The Formalities</h2>
 		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 
 		<hr />
@@ -11,7 +11,7 @@
 		<fieldset class="location form-stacked">
 			<div class="row clearfix">
 				<div id="location_preview" class="span4"></div>
-				<div class="span12 inputs">
+				<div class="span10 inputs">
 				<div class="row">
 					<div class="span4">
 						<label for="place[name]">City or Town</label>
@@ -33,20 +33,10 @@
 							<input type="hidden" class="displayonly" name="place[country]" autocomplete="off" id="country" />
 						</div>
 					</div>
-					<div class="span4">
-						<label for="place[locX]">Latitude</label>
-						<div class="input">
-							<span class="displayonly"></span>
-							<input type="hidden" class="displayonly" name="place[locX]" id="locX" autocomplete="off" />
-						</div>
-					</div>
-					<div class="span4">
-						<label for="place[locY]">Longitude</label>
-						<div class="input">
-							<span class="displayonly"></span>
-							<input type="hidden" class="displayonly" name="place[locY]" id="locY" autocomplete="off" />
-						</div>
-					</div>
+
+					<input type="hidden" class="displayonly" name="place[locX]" id="locX" autocomplete="off" required />
+					<input type="hidden" class="displayonly" name="place[locY]" id="locY" autocomplete="off" required />
+
 				</div>
 				</div>
 			</div>
@@ -56,7 +46,7 @@
 
 
 	<div class="pagination_page two" id="page_two">
-		<h2><em>Step 2 </em>How would you rate the city?</h2>
+		<h2>How would you rate the city?</h2>
 		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 
 		<hr />
@@ -65,7 +55,7 @@
 		<fieldset>
 		<div class="row">
 			<div class="leftbar span3">&nbsp;</div>
-			<div class="span12">
+			<div class="span11">
 
 			<%-
 
@@ -116,7 +106,7 @@
 	</div>
 
 	<div class="pagination_page three" id="page_three">
-		<h2><em>Step 2 </em>How would you rate the city?</h2>
+		<h2>How would you rate the city?</h2>
 		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 
 		<hr />
@@ -125,7 +115,7 @@
 		<fieldset>
 		<div class="row">
 			<div class="leftbar span3">&nbsp;</div>
-			<div class="span12">
+			<div class="span11">
 			<%-
 
 				partial('partials/sliders', { locals: {
@@ -164,7 +154,7 @@
 
 
 	<div class="pagination_page four" id="page_four">
-		<h2><em>Step 2 </em>How would you rate the city?</h2>
+		<h2>How would you rate the city?</h2>
 		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 
 		<hr />
@@ -173,7 +163,7 @@
 		<fieldset>
 		<div class="row">
 			<div class="leftbar span3">&nbsp;</div>
-			<div class="span12">
+			<div class="span11">
 			<%-
 				partial('partials/sliders', { locals: {
 					id		: 'pub',

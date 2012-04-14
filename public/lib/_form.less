@@ -24,6 +24,12 @@
 }
 
 
+#main {
+	background: #fff;
+	padding: 10px 30px;
+	.siz();
+}
+
 // Search page
 form
 {
@@ -38,6 +44,7 @@ form
 		padding-top: 20px;
 		position: relative;
 		color: @blu;
+		padding-bottom: 10px;
 
 		em {
 			#font.serif(normal, 0.7em, inherit);
@@ -51,6 +58,7 @@ form
 
 	h6 {
 		font-weight: 400;
+		#font.serif(normal, 1.3em, inherit);
 		text-transform: none;
 	}
 
@@ -232,6 +240,15 @@ fieldset.location
 				letter-spacing: 0.03em;
 				line-height: 35px;
 				height: 35px;
+
+				&.error {
+					border-color: #ff9090;
+					border-bottom-color: #ff6060;
+					.box-shadow(0 0 4px #ffa0a0);
+				}
+				&.valid {
+					border-color: #9d8;
+				}
 			}
 		}
 	}

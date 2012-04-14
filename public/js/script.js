@@ -24,6 +24,9 @@ $(function() {
     });
   }
 
+  // show background on homepage:
+  if ($('body').hasClass('bgimage')) $.backstretch("/lib/images/bg3.jpg", {speed: 500});
+
 
   // sticky nav bar when scroll past
   if ($('.bar.inline').length > 0)

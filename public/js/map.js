@@ -84,7 +84,7 @@ var app = {
 
 	    ///////////////////////////
 	    // draw infowindow
-	    console.log(e);
+
 	    var html = new EJS({url: '/templates/browse.map.popup.ejs'}).render({e: e});
 		this.windows[i] = new google.maps.InfoWindow({
     		content: html

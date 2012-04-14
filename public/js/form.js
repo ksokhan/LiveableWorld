@@ -2,6 +2,15 @@
 
 $(function() {
 
+	$('form.contrib').bind('submit', function(e) {
+		if ($(this).find('input#country').val() == "") {
+			e.preventDefault();
+			$('.pagination a[href="#page_one"]').trigger('click');
+			$(this).find('#name').val('').addClass('error').focus();
+		}
+
+	})
+
 	contribute_form = {
 		ajax_el: null,
 		place: {},
@@ -39,6 +48,8 @@ $(function() {
 		contribute_form.update(item);
 		//force clear spans
 		$('form span.displayonly').text('');
+	}).blur(function() {
+		if (! $(this).hasClass('valid') ) $(this).addClass('error');
 	}).autocomplete({
 		source: function( request, response ) {
 			// stop last ajax request, if it exists.
@@ -74,8 +85,9 @@ $(function() {
 		select: function(event, ui)
 		{
 			contribute_form.update(ui.item);
+			$('form #name').addClass('valid').removeClass('error');
 		}
-	})
+	});
 
 	// form polyfill
 	$('form').html5form();

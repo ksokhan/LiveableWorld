@@ -42,14 +42,14 @@
 		$(this).siblings('.active').removeClass('active');
 		$(this).addClass('active');
 
-		// show the page div
-		$('.section.active').hide().removeClass('active');
 		var loc = $(this).find('a').attr('href');
-		$(loc).show().addClass('active');
 
-		// load graph
+		// load page
 		if (loc == "#graphs") {
+			$(loc).fadeIn();
 			graph.draw();
+		} else if (loc == "#map") {
+			$('#graphs').fadeOut();
 		}
 	});
 </script>

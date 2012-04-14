@@ -23,13 +23,12 @@ var graph = {
 
 		var dat = [];
 		$.each(app.locations, function(key) {
-			infra = this.averages.econ;
 			$('<tr></tr>')
 				.append("<td class='city'>" + this.cit + ", " + this.reg + ", " + this.cnt + "</td>")
-				.append("<td><div class='avg liveability'><div style='width: " + this.avg * 25 + "%'>" + Math.round(this.avg * 10)/10 + "</div></div></td>")
-				.append("<td><div class='avg infra'><div style='width: " + infra * 25 + "%'></div></div></td>")
-				.append("<td><div class='avg culture'><div style='width: " + this.avg * 25 + "%'></div></div></td>")
-				.append("<td><div class='avg environ'><div style='width: " + this.avg * 25 + "%'></div></div></td>")
+				.append("<td><div class='avg liveability'><div style='width: " + this.avg * 25 + "%'><i>" + Math.round(this.avg * 10)/10 + "</i></div></div></td>")
+				.append("<td><div class='avg infra'><div style='width: " + this.sect_avg.infrastructure * 25 + "%'><i>" + Math.round(this.sect_avg.infrastructure * 10)/10 + "</i></div></div></td>")
+				.append("<td><div class='avg culture'><div style='width: " + this.sect_avg.culture * 25 + "%'><i>" + Math.round(this.sect_avg.culture * 10)/10 + "</i></div></div></td>")
+				.append("<td><div class='avg environ'><div style='width: " + this.sect_avg.environment * 25 + "%'><i>" + Math.round(this.sect_avg.environment * 10)/10 + "</i></div></div></td>")
 				.appendTo('#graphTable');
 
 			dat.push(this.avg);
