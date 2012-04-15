@@ -3013,7 +3013,7 @@ header .pills {
 }
 #map {
   width: 100%;
-  background: #ddd;
+  background: #dddddd url(images/map.png) center center;
   height: 100%;
 }
 #browse footer {
