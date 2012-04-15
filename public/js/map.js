@@ -139,4 +139,5 @@ app.map.center_changed = function() {
     }
 }
 
-$(window).load(app.init);
+// commenting out for OFFLINE usage
+//$(window).load(app.init);
