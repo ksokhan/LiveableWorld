@@ -17,12 +17,12 @@ window.log = function(){
 
 $(function() {
   // simply show the 'This is in development' screen.
-  if(sessionStorage && !sessionStorage.getItem('dev_notice')) {
+  /*if(sessionStorage && !sessionStorage.getItem('dev_notice')) {
     $('#dev_notice').modal({
       show: true,
       backdrop: true
     });
-  }
+  }*/
 
   // show background on homepage:
   if ($('body').hasClass('bgimage')) $.backstretch("/lib/images/bg3.jpg", {speed: 500});
