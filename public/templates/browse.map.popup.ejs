@@ -1,9 +1,26 @@
-<h3><%= e.cit %></h3>
-<p>
-	<%= (e.reg ? e.reg + ', ' : '') + e.cnt %>
-</p>
-<ul>
-	<li>Overall average: <%= e.avg.toFixed(1) %></li>
-	<li>Environment: <%= e.averages.econ.toFixed(1) %></li>
-	li
-</ul>
+<div class="popover fade below in" style="display: block; z-index: 0;">
+	<div class="arrow"></div>
+	<div class="inner">
+		<h3 class="title"><%= e.cit %> <em><%= (e.reg ? e.reg + ', ' : '') + e.cnt %></em></h3>
+		<div class="content">
+			<ul>
+				<li>Overall average: <%= e.avg.toFixed(1) %></li>
+				<li>Economy: <%= e.averages.econ.toFixed(1) %></li>
+				<li>Career: <%= e.averages.car.toFixed(1) %></li>
+				<li>Education: <%= e.averages.edu.toFixed(1) %></li>
+				<li>Healthcare: <%= e.averages.heal.toFixed(1) %></li>
+				<li>Safety: <%= e.averages.saf.toFixed(1) %></li>
+				<li>Freedom: <%= e.averages.fre.toFixed(1) %></li>
+			</ul><!--
+			<ul>
+				<li>Economy: <%= e.averages.econ.toFixed(1) %></li>
+				<li>Career: <%= e.averages.car.toFixed(1) %></li>
+				<li>Education: <%= e.averages.edu.toFixed(1) %></li>
+				<li>Healthcare: <%= e.averages.heal.toFixed(1) %></li>
+				<li>Safety: <%= e.averages.saf.toFixed(1) %></li>
+				<li>Freedom: <%= e.averages.fre.toFixed(1) %></li>
+			</ul>-->
+		</div>
+	</div>
+
+</div>

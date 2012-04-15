@@ -2616,7 +2616,7 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   min-width: 960px;
 }
-body#home {
+body.bgimage {
   background: #c1bcb7;
 }
 header.bar {
@@ -3229,20 +3229,22 @@ header .pills {
 }
 .pagination {
   text-align: center;
+  margin-top: 0;
 }
 .pagination ul {
+  margin-top: 0;
   display: inline-block;
   float: none;
 }
 #main {
   background: #fff;
-  padding: 10px 30px;
+  padding: 10px 30px 20px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 form {
-  padding-bottom: 20px;
+  padding-bottom: 0px;
 }
 form hr {
   margin-bottom: 25px;
@@ -3273,13 +3275,13 @@ form h6 {
   text-transform: none;
 }
 form fieldset {
-  padding: 30px 0 !important;
+  padding: 30px 0 0px !important;
   border: solid 1px #ddd;
   border-bottom-color: #ccc;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  margin: 5px 0 40px 0px;
+  margin: 5px 0 10px 0px;
   -webkit-box-shadow: 0 1px 0 #fff inset, 0 1px 0 #eee;
   -moz-box-shadow: 0 1px 0 #fff inset, 0 1px 0 #eee;
   box-shadow: 0 1px 0 #fff inset, 0 1px 0 #eee;

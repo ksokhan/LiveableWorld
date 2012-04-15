@@ -79,19 +79,41 @@ var app = {
 		});
 
 		///////////////////////////
-		// draw overlay
+		// draw overlaya
 	    var overlay = new CityOverlay(pos, e);
 
 	    ///////////////////////////
 	    // draw infowindow
+	    //
 
-	    var html = new EJS({url: '/templates/browse.map.popup.ejs'}).render({e: e});
+		var html = new EJS({url: '/templates/browse.map.popup.ejs'}).render({e: e});
 		this.windows[i] = new google.maps.InfoWindow({
     		content: html
 		});
 
+
+	    this.windows[i] = new InfoBox({
+                 content: html
+                ,disableAutoPan: false
+                ,maxWidth: 200
+                ,pixelOffset: new google.maps.Size(-148, 20)
+                ,zIndex: null
+                ,boxStyle: {}
+                ,closeBoxMargin: "15px 2px 2px 2px"
+                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+                ,infoBoxClearance: new google.maps.Size(1, 1)
+                ,isHidden: false
+                ,pane: "floatPane"
+                ,enableEventPropagation: false
+        });
+
 		google.maps.event.addListener(this.markers[i], 'click', function() {
-  			app.windows[i].open(app.map,app.markers[i]);
+  			app.windows[i].open(app.map,this);
+
+  			google.maps.event.addListenerOnce(app.map, 'click', function(w) {
+  				app.windows[i].close(app.map,app.markers[i]);
+  			});
+
 		});
 	}
 }
