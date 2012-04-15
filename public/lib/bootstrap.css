@@ -2942,7 +2942,7 @@ header .pills {
   color: #fff;
   margin: 0 auto;
   position: fixed;
-  bottom: 40px;
+  bottom: 20%;
   left: 0;
   right: 0;
   padding: 40px 20px 20px;
