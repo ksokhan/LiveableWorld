@@ -3,6 +3,42 @@
 	<div class="inner">
 		<h3 class="title"><%= e.cit %> <em><%= (e.reg ? e.reg + ', ' : '') + e.cnt %></em></h3>
 		<div class="content">
+			<table class="graphTable">
+				<tr>
+					<td class="name">Overall</td>
+					<td>
+						<div class='avg'><div style='width: <%= e.avg * 25 %>%'>
+							<i><%= Math.round(e.avg * 25) %>%</i>
+						</div></div>
+					</td>
+				</tr>
+				<tr>
+					<td class="name">Infrastructure</td>
+					<td>
+						<div class='avg'>
+							<div style='width: <%= e.sect_avg.infrastructure * 25 %>%'>
+								<i><%= Math.round(e.sect_avg.infrastructure * 25) %>%</i>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="name">Culture</td>
+					<td>
+						<div class='avg'>
+							<div style='width: <%= e.sect_avg.culture * 25 %>%'>
+								<i><%= Math.round(e.sect_avg.culture * 25) %>%</i>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="name">Environment</td>
+					<td><div class='avg'><div style='width: <%= e.sect_avg.environment * 25 %>%'><i>
+						<%= Math.round(e.sect_avg.environment * 25) %>%</i></div></div></td>
+				</tr>
+
+			</table><!--
 			<ul>
 				<li>Overall average: <%= e.avg.toFixed(1) %></li>
 				<li>Economy: <%= e.averages.econ.toFixed(1) %></li>

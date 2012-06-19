@@ -40,6 +40,7 @@ var mapOptions = {
 var app = {
 	zoomOverlayTo: 2, // map starts off at 2, so lets just set it here anyway.
 	markers : [],
+	openMarkers: [],
 	circles: [],
 	windows: [],
 	locations: null,
@@ -100,12 +101,16 @@ var app = {
                 ,zIndex: null
                 ,boxStyle: {}
                 ,closeBoxMargin: "15px 2px 2px 2px"
-                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+                ,closeBoxURL: ""
                 ,infoBoxClearance: new google.maps.Size(1, 1)
                 ,isHidden: false
                 ,pane: "floatPane"
                 ,enableEventPropagation: false
         });
+
+	    /*google.maps.event.addListener(this.markers[i], 'mouseover', function(e) {
+	    	console.log(e); //.tooltip('show');
+	    });*/
 
 		google.maps.event.addListener(this.markers[i], 'click', function() {
   			app.windows[i].open(app.map,this);

@@ -905,9 +905,10 @@ input[type=submit].btn {
     top: 0;
     left: 50%;
     margin-left: -@arrowWidth;
+    margin-top: -10px;
     border-left: @arrowWidth solid transparent;
     border-right: @arrowWidth solid transparent;
-    border-bottom: @arrowWidth solid @black;
+    border-bottom: @arrowWidth solid #f6ebc3;
   }
   .right(@arrowWidth: 5px) {
     top: 50%;
@@ -959,6 +960,7 @@ input[type=submit].btn {
 // --------
 
 .popover {
+  @black: #f6ebc3;
   position: absolute;
   top: 0;
   left: 0;
@@ -967,7 +969,7 @@ input[type=submit].btn {
   display: none;
   &.above .arrow { #popoverArrow > .above(); }
   &.right .arrow { #popoverArrow > .right(); }
-  &.below .arrow { #popoverArrow > .below(); }
+  &.below .arrow { #popoverArrow > .below(15px); }
   &.left .arrow  { #popoverArrow > .left(); }
   .arrow {
     position: absolute;
@@ -976,19 +978,19 @@ input[type=submit].btn {
   }
   .inner {
     background: @black;
-    background: rgba(0,0,0,.8);
-    padding: 3px;
+    //background: rgba(200,200,200,.8);
+    //padding: 3px;
     overflow: hidden;
     width: 280px;
-    .border-radius(6px);
+    //.border-radius(6px);
     .box-shadow(0 3px 7px rgba(0,0,0,0.3));
   }
   .title {
-    background-color: #f5f5f5;
+    background-color: @black;
     padding: 9px 15px;
     line-height: 1;
     .border-radius(3px 3px 0 0);
-    border-bottom:1px solid #eee;
+    border-bottom:1px solid @black - #111;
   }
   .content {
     background-color: @white;
