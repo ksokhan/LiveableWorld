@@ -3096,8 +3096,9 @@ header .pills {
 .popover .title em {
   font-weight: normal;
   font-style: normal;
-  color: #666;
+  color: #ac9e87;
   font-size: 0.7em;
+  margin-left: 2px;
 }
 .popover .graphTable {
   display: block;
@@ -3179,9 +3180,9 @@ header .pills {
 }
 .graphTable .city em {
   font-weight: normal;
-  color: #666;
+  color: #999;
   font-size: 0.8em;
-  text-indent: 2px;
+  margin-left: 1px;
 }
 .graphTable .avg {
   background: #eee;
