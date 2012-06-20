@@ -15,13 +15,7 @@
 .pagination_page {
 	.clearfix;
 	clear: both;
-}
-
-.pagination {
-	text-align: center;
-	margin-top: 0;
-
-	ul { margin-top: 0; display: inline-block; float: none; }
+	margin-top: 30px;
 }
 
 
@@ -45,22 +39,16 @@ form
 		padding-top: 20px;
 		position: relative;
 		color: @blu;
-		padding-bottom: 10px;
-
-		em {
-			#font.serif(normal, 0.7em, inherit);
-			line-height: 2.4em;
-			display: inline-block;
-			position: absolute;
-			left: -70px;
-			color: #999;
-		}
+		padding-bottom: 15px;
+		font-family: 'FamiliarProBold', Helvetica, Arial, sans-serif;
+		font-size: 2.4em;
 	}
 
 	h6 {
 		font-weight: 400;
 		#font.serif(normal, 1.3em, inherit);
 		text-transform: none;
+		padding-bottom: 40px;
 	}
 
 	fieldset {
@@ -84,11 +72,28 @@ form
 			padding: 0px 0 39px 0;
 		}
 
+		.sectionTotal {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			margin-top: -10px;
+			text-align: center;
+			width: 190px;
+
+			color: #ddd;
+			text-shadow: 0 2px 0 #fff;
+			font-size: 1.9em;
+			font-family: 'Helvetica Neue', Helvetica, Arial;
+			font-weight: 300;
+		}
+
 		label {
 			position: relative;
 			z-index: 2;
 			width: 160px;
 			top: -4px;
+			//font-family: Helvetica, Arial, sans-serif;
+			color: #666;
 
 			&:after {
 				content: "?";
@@ -206,10 +211,10 @@ fieldset.location
 	{
 		margin-top: -31px;
 		margin-bottom: -40px;
-		height: 221px;
+		height: 136px;
 		.box-shadow(~"-1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset");
 
-		background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
+		background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x136&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
 	}
 
 	.inputs
@@ -221,7 +226,8 @@ fieldset.location
 		label {
 			font-weight: 400;
 			margin-bottom: 10px;
-			color: #999;
+			font-family: Helvetica, Arial, sans-serif;
+			color: #bbb;
 			margin-top: 0;
 
 			&:after {
@@ -236,11 +242,12 @@ fieldset.location
 			margin-right: 0;
 			height: 35px;
 
-			input {
+			input, .displayonly {
 				width: 190px;
 				letter-spacing: 0.03em;
 				line-height: 35px;
 				height: 35px;
+				display: inline-block;
 
 				&.error {
 					border-color: #ff9090;

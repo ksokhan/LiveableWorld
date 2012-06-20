@@ -37,7 +37,7 @@ $(function() {
 		set_thumbnail: function()
 		{
 			var zoom = typeof this.place.lng != 'undefined' ? 3 : 1;
-			$('#location_preview').css('background', 'url(http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=' + zoom + '&markers=size:small|color:red|' + this.place.lat + ',' + this.place.lng + '&center=' + this.place.lat + ',' + this.place.lng + ') center center no-repeat');
+			$('#location_preview').css('background', 'url(http://maps.googleapis.com/maps/api/staticmap?size=220x136&maptype=roadmap&sensor=false&zoom=' + zoom + '&markers=size:small|color:red|' + this.place.lat + ',' + this.place.lng + '&center=' + this.place.lat + ',' + this.place.lng + ') center center no-repeat');
 		}
 	}
 
@@ -106,6 +106,8 @@ $(function() {
 		create: function() {
 			var slider_val = $(this).siblings(':input').val() * 10 == 0 ? 1 : $(this).siblings(':input').val() * 10;
 			$(this).slider('value', slider_val);
+			// set item value
+			$(this).attr('rel', (slider_val / 10));
 			$(this).after('<div class="marker one"></div><div class="marker two"></div><div class="marker three"></div>');
 		},
 		stop: function(e, ui) {
@@ -114,8 +116,18 @@ $(function() {
 			var variance = ui.value % 10;
 			var val = variance < 5 ? ui.value - variance : ui.value - variance + 10;
 
-			// set dropdown value
-			//$(this).siblings('select').val(val / 10);
+
+			// set item value
+			$(this).attr('rel', (val / 10));
+			// record the average for each section
+			var tot = $(this).parents('.row').find('.sectionTotal');
+			var num = 0;
+			$(this).parents('.row').find('.slider').each(function () {
+				num += parseInt( $(this).attr('rel') ) * 25 || 0;
+			});
+			num /= $(this).parents('.row').find('.slider').length; // divide by the number of items
+			tot.html( Math.round(num)  + "%");
+
 
 			// if its zero, show just a little bit of it. Stylistic change.
 			if (val == 0) val = 1;
@@ -123,7 +135,16 @@ $(function() {
 			$(this).slider('value', val);
 			$(this).siblings(':input').val(parseInt(val/10));
 		}
+	}).each(function() {
+		var tot = $(this).parents('.row').find('.sectionTotal');
+		var num = 0;
+		$(this).parents('.row').find('.slider').each(function () {
+			num += parseInt( $(this).attr('rel') ) * 25 || 0;
+		});
+		num /= $(this).parents('.row').find('.slider').length; // divide by the number of items
+		tot.html( Math.round(num)  + "%");
 	});
+
 
 
 	// Popovers
@@ -134,47 +155,20 @@ $(function() {
 		leftpos: '70px'
 	});
 
-
-	// Pagination
-
-	function showPage(el) {
-		$('.pagination_page').hide();
-		$(el).show();
-
-		// change menu
-		var cur = $('.pagination .active');
-		cur.removeClass('active');
-
-		// add highlight to new item
-		$('.pagination').find('a[href=' + el + "]").parent().not('.btns').addClass('active');
-
-		// rig next and back buttons
-
-		$('.pagination .prev a').attr('href', $('.pagination').find('.active').prev().children('a').attr('href'));
-		$('.pagination .next a').attr('href', $('.pagination').find('.active').next().children('a').attr('href'));
-
-		// check if next and back need to be disabled...
-		if (cur.prev().not('.btns').children('a').attr('href') == $('.pagination .prev a').attr('href')) {
-			$('.pagination .prev').addClass('disabled');
-		} else {
-			$('.pagination .prev').removeClass('disabled');
-		}
-
-		if (cur.next().not('.btns').children('a').attr('href') == $('.pagination .next a').attr('href')) {
-			$('.pagination .next').addClass('disabled');
-		} else {
-			$('.pagination .next').removeClass('disabled');
-		}
-
-	}
-
 	// show first page on load
 	$('.pagination_page').hide();
-	$('.pagination_page').first().show();
+	$('.pagination_page').first().show().addClass('shown');
 
-	$('.pagination a').click(function(e) {
+	$('.nextbutton a').click(function(e) {
 		e.preventDefault();
-		showPage($(this).attr('href'));
+		$('#main .pagination_page').not('.shown').first().fadeIn('slow').addClass('shown');
+
+		var destination = $('#main .shown').last().offset().top;
+   		setTimeout(function() {
+   			$("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination-60}, 900);
+   		}, 200);
+
+   		if ($('#main .shown').last().next().length == '0') { $('.nextbutton').fadeOut(); }
 	});
 
 });

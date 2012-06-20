@@ -2993,6 +2993,12 @@ header .pills {
 .btn.right {
   float: right;
 }
+.centered {
+  text-align: center;
+}
+.margin-top {
+  margin-top: 20px;
+}
 .back {
   float: left;
   margin: 5px 20px 0 0;
@@ -3116,6 +3122,12 @@ header .pills {
 }
 .popover .graphTable td {
   border-color: #eee;
+}
+.popover .graphTable tr:first-child td {
+  border-top: solid 1px #ffffff;
+}
+.popover .graphTable tr:first-child:hover td {
+  border-top-color: #eeeeee;
 }
 .popover .graphTable tr:hover {
   border-color: #eee;
@@ -3251,6 +3263,7 @@ header .pills {
 .pagination_page {
   zoom: 1;
   clear: both;
+  margin-top: 30px;
 }
 .pagination_page:before,
 .pagination_page:after {
@@ -3260,15 +3273,6 @@ header .pills {
 }
 .pagination_page:after {
   clear: both;
-}
-.pagination {
-  text-align: center;
-  margin-top: 0;
-}
-.pagination ul {
-  margin-top: 0;
-  display: inline-block;
-  float: none;
 }
 #main {
   background: #fff;
@@ -3287,18 +3291,9 @@ form h2 {
   padding-top: 20px;
   position: relative;
   color: #0069d6;
-  padding-bottom: 10px;
-}
-form h2 em {
-  font-family: "Georgia", Times New Roman, Times, serif;
-  font-size: 0.7em;
-  font-weight: normal;
-  line-height: inherit;
-  line-height: 2.4em;
-  display: inline-block;
-  position: absolute;
-  left: -70px;
-  color: #999;
+  padding-bottom: 15px;
+  font-family: 'FamiliarProBold', Helvetica, Arial, sans-serif;
+  font-size: 2.4em;
 }
 form h6 {
   font-weight: 400;
@@ -3307,6 +3302,7 @@ form h6 {
   font-weight: normal;
   line-height: inherit;
   text-transform: none;
+  padding-bottom: 40px;
 }
 form fieldset {
   padding: 30px 0 0px !important;
@@ -3341,11 +3337,25 @@ form fieldset:before {
   height: 100%;
   padding: 0px 0 39px 0;
 }
+form fieldset .sectionTotal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -10px;
+  text-align: center;
+  width: 190px;
+  color: #ddd;
+  text-shadow: 0 2px 0 #fff;
+  font-size: 1.9em;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+  font-weight: 300;
+}
 form fieldset label {
   position: relative;
   z-index: 2;
   width: 160px;
   top: -4px;
+  color: #666;
 }
 form fieldset label:after {
   content: "?";
@@ -3496,11 +3506,11 @@ fieldset.location {
 fieldset.location #location_preview {
   margin-top: -31px;
   margin-bottom: -40px;
-  height: 221px;
+  height: 136px;
   -webkit-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
   -moz-box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
   box-shadow: -1px 0 1px rgba(0,0,0,0.2) inset, 0 0 1px rgba(0,0,0,0.2) inset;
-  background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x221&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
+  background: url("http://maps.googleapis.com/maps/api/staticmap?size=220x136&maptype=roadmap&sensor=false&zoom=1&markers=size:small|color:red");
 }
 fieldset.location .inputs .span4,
 fieldset.location .inputs .span3 {
@@ -3509,7 +3519,8 @@ fieldset.location .inputs .span3 {
 fieldset.location .inputs label {
   font-weight: 400;
   margin-bottom: 10px;
-  color: #999;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #bbb;
   margin-top: 0;
 }
 fieldset.location .inputs label:after {
@@ -3521,20 +3532,24 @@ fieldset.location .inputs .input {
   margin-right: 0;
   height: 35px;
 }
-fieldset.location .inputs .input input {
+fieldset.location .inputs .input input,
+fieldset.location .inputs .input .displayonly {
   width: 190px;
   letter-spacing: 0.03em;
   line-height: 35px;
   height: 35px;
+  display: inline-block;
 }
-fieldset.location .inputs .input input.error {
+fieldset.location .inputs .input input.error,
+fieldset.location .inputs .input .displayonly.error {
   border-color: #ff9090;
   border-bottom-color: #ff6060;
   -webkit-box-shadow: 0 0 4px #ffa0a0;
   -moz-box-shadow: 0 0 4px #ffa0a0;
   box-shadow: 0 0 4px #ffa0a0;
 }
-fieldset.location .inputs .input input.valid {
+fieldset.location .inputs .input input.valid,
+fieldset.location .inputs .input .displayonly.valid {
   border-color: #9d8;
 }
 @media all and (max-height: 700px) {

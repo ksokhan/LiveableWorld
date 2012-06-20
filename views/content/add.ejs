@@ -5,9 +5,6 @@
 		<h2>First, The Formalities</h2>
 		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 
-		<hr />
-
-		<h4>Background Information</h4>
 		<fieldset class="location form-stacked">
 			<div class="row clearfix">
 				<div id="location_preview" class="span4"></div>
@@ -19,14 +16,14 @@
 							<input type="text" name="place[name]" id="name" value="" autocomplete="off" required="required" />
 						</div>
 					</div>
-					<div class="span4">
-						<label for="place[region]">State, Province, or Region</label>
+					<div class="span3">
+						<label for="place[region]">Region</label>
 						<div class="input">
 							<span class="displayonly"></span>
 							<input type="hidden" class="displayonly" name="place[region]" autocomplete="off" id="region" />
 						</div>
 					</div>
-					<div class="span4">
+					<div class="span3">
 						<label for="place[country]">Country</label>
 						<div class="input">
 							<span class="displayonly"></span>
@@ -49,11 +46,10 @@
 		<h2>How would you rate the city?</h2>
 		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
 
-		<hr />
-
 		<h4>Infrastructure</h4>
 		<fieldset>
 		<div class="row">
+			<div class="sectionTotal">0%</div>
 			<div class="leftbar span3">&nbsp;</div>
 			<div class="span11">
 
@@ -106,14 +102,11 @@
 	</div>
 
 	<div class="pagination_page three" id="page_three">
-		<h2>How would you rate the city?</h2>
-		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
-
-		<hr />
 
 		<h4>Culture</h4>
 		<fieldset>
 		<div class="row">
+			<div class="sectionTotal">0%</div>
 			<div class="leftbar span3">&nbsp;</div>
 			<div class="span11">
 			<%-
@@ -154,14 +147,11 @@
 
 
 	<div class="pagination_page four" id="page_four">
-		<h2>How would you rate the city?</h2>
-		<h6>We need to know some details about the place you are submitting. Don&rsquo;t worry, it will only take a minute!</h6>
-
-		<hr />
 
 		<h4>Environment</h4>
 		<fieldset>
 		<div class="row">
+			<div class="sectionTotal">0%</div>
 			<div class="leftbar span3">&nbsp;</div>
 			<div class="span11">
 			<%-
@@ -198,7 +188,7 @@
 		</div>
 		</fieldset>
 		<div class="clearfix">
-		<button type="submit" class="btn large primary right">Submit my City</button>
+		<p class="centered margin-top"><button type="submit" class="btn large primary">Add my City</button></p>
 	</div>
 
 	</div>
@@ -206,16 +196,9 @@
 	</form>
 
 
-<div class="pagination">
-    <ul>
-    <li class="prev disabled btns"><a href="#" class="">Previous</a></li>
-    <li class="active"><a href="#page_one">1</a></li>
-    <li><a href="#page_two">2</a></li>
-    <li><a href="#page_three">3</a></li>
-    <li><a href="#page_four">4</a></li>
-    <li class="next btns"><a href="#page_two" class="">Next</a></li>
-    </ul>
-</div>
+	<div class="nextbutton centered margin-top">
+	    <p><a class="btn large">Contine <span class="icon">{</span></a></p>
+	</div>
 </div>
 
 
