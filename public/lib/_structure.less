@@ -270,9 +270,9 @@ header {
 			}
 
 			p {
-				color: @col - #999;
-				font: normal 400 1.2em/140% @text;
-				text-shadow: 0 1px 0 rgba(255,255,255,0.15);
+				color: @col - #666;
+				font: normal 400 1.3em/140% @serif;
+				//text-shadow: 0 1px 0 rgba(255,255,255,0.2);
 			}
 
 		}
@@ -360,13 +360,13 @@ border-bottom: 1px solid #ffc7c0 - #111;
 	.siz();
 	padding: 40px 70px 40px 60px;
 
-	.box-shadow(0 1px 3px rgba(0,0,0,0.2));
+	.box-shadow(0 1px 2px rgba(0,0,0,0.2));
 	z-index: 2;
 	position: relative;
 	width: 960px;
 
 	h2 {
-		color: lighten(saturate(@bl, -20%), 30%);
+		color: @green; //lighten(saturate(@bl, -20%), 30%);
 		font: 600 2em/2.2em 'FamiliarProBold', Helvetica, Arial, sans-serif;
 		margin-bottom: 10px;
 
@@ -380,13 +380,17 @@ border-bottom: 1px solid #ffc7c0 - #111;
 }
 
 .infobox {
-	background: #ddd;
+	background: #ddd url(images/noise.png);
+	border-bottom: solid 1px #eee;
+	border-left: solid 1px #eee;
+	border-right: solid 1px #eee;
 	.siz();
 	margin: 0 auto 30px;
 	padding: 40px 40px 40px 60px;
 
 	font: normal 400 1.3em/140% @serif;
-	color: darken(saturate(@green, 0%), 20%);
+	color: saturate(@blu, -40%) + #111; //darken(saturate(@green, 0%), 20%);
+	//text-shadow: 0 1px 0 #eee;
 
 	.iconbox {
 		text-align: center;
@@ -394,11 +398,12 @@ border-bottom: 1px solid #ffc7c0 - #111;
 
 		.icon {
 			font-size: 2em;
-			color: @green;
+			color: saturate(@blu, -40%) + #222;
+			text-shadow: 0 1px 0 #eee;
 		}
 	}
 
-	.btn { font-family: 'FamiliarProBold', Helvetica, Arial, sans-serif; color: #444 }
+	.btn { /*font-family: 'FamiliarProBold', Helvetica, Arial, sans-serif;*/ color: #444 }
 }
 
 
