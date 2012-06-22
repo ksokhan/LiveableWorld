@@ -399,8 +399,9 @@ border-bottom: 1px solid #ffc7c0 - #111;
 
 		.icon {
 			font-size: 2em;
-			color: saturate(@blu, -40%) + #222;
-			text-shadow: 0 1px 0 #eee;
+			color: saturate(@blu, -30%) + #111;
+			//text-shadow: 0 1px 0 #eee;
+			-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,1)));
 		}
 	}
 
