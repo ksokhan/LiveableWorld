@@ -2803,8 +2803,7 @@ header.bar h1 {
   display: inline;
 }
 header.big {
-  padding: 0px 50px 0px 50px;
-  margin-bottom: 10px;
+  padding: 60px 50px 0px 0px;
   text-align: center;
 }
 header.big h1 {
@@ -2914,7 +2913,7 @@ header .pills {
   text-align: center;
   color: #fff;
   line-height: 140%;
-  margin: 0px auto 160px;
+  margin: 0px auto 120px;
   font: normal 400 1.8em/1.3em 'Copse', Georgia, serif;
 }
 .subtitle a {
@@ -2948,9 +2947,11 @@ header .pills {
 }
 .homebox .row {
   margin-bottom: 0;
+  margin-left: -15px !important;
 }
 .homebox .row > li {
-  padding: 40px 30px 30px 50px;
+  padding: 40px 30px 30px 30px;
+  text-align: center;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2958,13 +2959,12 @@ header .pills {
 .homebox hr.vertical {
   width: 0;
   border: 0 none;
-  border-left: 1px solid #dda59e;
+  border-left: 1px solid #f8c0b9;
   height: 100%;
   position: absolute;
   bottom: 0;
   left: 50%;
   margin: 0 0 0 -1px;
-  display: none;
 }
 .section {
   display: none;
