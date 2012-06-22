@@ -2874,7 +2874,7 @@ header .pills {
   background-image: -o-linear-gradient(top, #0230a1, #011547);
   background-image: linear-gradient(top, #0230a1, #011547);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0230a1', endColorstr='#011547', GradientType=0);
-  color: #abc4f3;
+  color: #cde6ff;
   text-shadow: 0 1px 0 #000027;
   border: solid 1px #233c6b;
   border-bottom: solid 1px #000938;
@@ -2916,8 +2916,7 @@ header .pills {
   color: #fff;
   line-height: 140%;
   margin: 0px auto 160px;
-  text-shadow: 0 1px 0 #fff;
-  font: normal 400 1.8em/1.3em Georgia, serif;
+  font: normal 400 1.8em/1.3em 'Copse', Georgia, serif;
 }
 .subtitle a {
   color: #fff;
@@ -2929,20 +2928,30 @@ header .pills {
   color: #ffff99;
 }
 .homebox {
-  background: rgba(255, 199, 192, 0.86) url(images/noise.png);
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
+  background: rgba(255, 226, 223, 0.93) url(images/noise.png);
+  /*-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;*/
+
   -webkit-box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 -2px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
   color: #fff;
   margin: 0 auto;
-  position: fixed;
-  bottom: 20%;
-  left: 0;
-  right: 0;
-  padding: 40px 20px 20px;
+  border-bottom: 1px solid #eeb6af;
+}
+.homebox .row {
+  margin-bottom: 0;
+}
+.homebox .row > li {
+  padding: 40px 30px 30px 50px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2956,6 +2965,7 @@ header .pills {
   bottom: 0;
   left: 50%;
   margin: 0 0 0 -1px;
+  display: none;
 }
 .section {
   display: none;
@@ -2970,11 +2980,49 @@ header .pills {
 }
 .whitebox {
   background: #fff;
+  margin: 0 auto 0px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 50px auto 50px;
-  padding: 20px;
+  padding: 40px 70px 40px 60px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  position: relative;
+  width: 960px;
+}
+.whitebox h2 {
+  color: #1a57c9;
+  font: 600 2em/2.2em 'FamiliarProBold', Helvetica, Arial, sans-serif;
+  margin-bottom: 10px;
+}
+.whitebox p {
+  font: 400 1.4em/150% Helvetica, Arial, sans-serif;
+  margin-bottom: 10px;
+  color: #999;
+}
+.infobox {
+  background: #ddd;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto 30px;
+  padding: 40px 40px 40px 60px;
+  font: normal 400 1.3em/140% 'Copse', Georgia, serif;
+  color: #285d28;
+}
+.infobox .iconbox {
+  text-align: center;
+  padding-top: 10px;
+}
+.infobox .iconbox .icon {
+  font-size: 2em;
+  color: #46a546;
+}
+.infobox .btn {
+  font-family: 'FamiliarProBold', Helvetica, Arial, sans-serif;
+  color: #444444;
 }
 #main {
   max-width: 960px;
@@ -2998,6 +3046,15 @@ header .pills {
 }
 .margin-top {
   margin-top: 20px;
+}
+footer.credit {
+  border-top: 0 none;
+  color: #999;
+  margin-bottom: 20px;
+  text-align: center;
+}
+footer.credit a {
+  color: #70b6ff;
 }
 .back {
   float: left;
