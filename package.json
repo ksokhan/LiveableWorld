@@ -1,5 +1,5 @@
 {
   "name" : "LiveableWorld",
-  "version" : "0.0.1",
+  "version" : "v0.6.8",
   "scripts": { "start": "./liveableworld.js" }
 }
