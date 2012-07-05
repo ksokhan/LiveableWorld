@@ -5,7 +5,8 @@
 
 var express = require('express'),
     routes = require('./routes'),
-	mongo = require('mongoskin');
+    mongo = require('mongoskin'),
+    config = require('./config');
 
 var app = express.createServer();
 
@@ -30,7 +31,7 @@ app.configure('development', function(){
 
 
 // DB setup
-db = mongoskin.db(process.env.DB);
+db = mongoskin.db(config.db);
 places = db.collection('Places');
 submissions = db.collection('Submissions');
 
@@ -50,4 +51,4 @@ app.get('/cleardb', routes.database_clear);
 app.get('/data/:id', routes.ajaxdata);
 
 app.listen(process.env.PORT || 3001);
-// console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
