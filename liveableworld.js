@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.compiler({ src: __dirname + '/public', enable: ['less'], autocompile: true }));
+//app.use(express.compiler({ src: __dirname + '/public', enable: ['less'], autocompile: true }));
 app.use(app.router);
 app.use(express.static(__dirname + '/public'));
 
@@ -30,7 +30,7 @@ app.configure('development', function(){
 
 
 // DB setup
-db = mongo.db('localhost:27017/liveableworld');
+db = mongoskin.db(process.env.DB);
 places = db.collection('Places');
 submissions = db.collection('Submissions');
 
@@ -49,5 +49,5 @@ app.get('/browse/:id', routes.browse);
 app.get('/cleardb', routes.database_clear);
 app.get('/data/:id', routes.ajaxdata);
 
-app.listen(80);
+app.listen(process.env.PORT || 3001);
 // console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
