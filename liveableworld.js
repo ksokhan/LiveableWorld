@@ -5,8 +5,7 @@
 
 var express = require('express'),
     routes = require('./routes'),
-    mongo = require('mongoskin'),
-    config = require('./config');
+    mongo = require('mongoskin');
 
 var app = express.createServer();
 
@@ -23,15 +22,18 @@ app.use(express.static(__dirname + '/public'));
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  var  config = require('./config');
+  // start db
+  db = mongoskin.db(config.db);
 });
 
-/*app.configure('production', function(){
+app.configure('production', function(){
   app.use(express.errorHandler());
-});*/
+  // start db
+  db = mongoskin.db(process.env.DB);
+});
 
 
-// DB setup
-db = mongoskin.db(config.db);
 places = db.collection('Places');
 submissions = db.collection('Submissions');
 
