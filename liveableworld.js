@@ -52,5 +52,7 @@ app.get('/browse/:id', routes.browse);
 app.get('/cleardb', routes.database_clear);
 app.get('/data/:id', routes.ajaxdata);
 
+app.get('/mu-0e970e83-b9189184-844a0d06-bd2f5237', function(req,res) { res.send('42'); });
+
 app.listen(process.env.PORT || 3001);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
