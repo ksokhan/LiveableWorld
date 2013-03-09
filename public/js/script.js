@@ -25,7 +25,7 @@ $(function() {
   }*/
 
   // show background on homepage:
-  if ($('body').hasClass('bgimage')) $.backstretch("/lib/images/bg3.jpg", {speed: 500, centeredY: false});
+  if ($('body').hasClass('bgimage')) $.backstretch("/images/bg.jpg", {speed: 500, centeredY: false});
 
 
   // sticky nav bar when scroll past

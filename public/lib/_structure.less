@@ -269,8 +269,10 @@ header {
 			}
 
 			p {
-				color: @col - #666;
-				font: normal 400 1.3em/140% @serif;
+				color: #999;
+				color: rgba(0,0,0,0.3);
+				font: normal 400 1.2em/140% @serif;
+				padding: 0 30px;
 				//text-shadow: 0 1px 0 rgba(255,255,255,0.2);
 			}
 
@@ -301,7 +303,7 @@ header {
 }
 
 .homebox {
-	@bg: #ffc7c0;
+	@bg: #eae7e5;
 	background: fade(lighten(@bg, 6%), 93%) url(images/noise.png);
 
 	/*-webkit-border-top-left-radius: 5px;
@@ -311,13 +313,13 @@ header {
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;*/
 
-	.box-shadow(0 -2px 1px rgba(0,0,0,0.2));
+	.box-shadow(0 -1px 1px rgba(0,0,0,0.1));
 	.siz();
 
 	position: relative;
 	color: #fff;
 	margin: 0 auto;
-border-bottom: 1px solid #ffc7c0 - #111;
+	border-bottom: 1px solid #d9d5d5;
 
 	.row {
 		margin-bottom: 0;
@@ -359,7 +361,7 @@ border-bottom: 1px solid #ffc7c0 - #111;
 	background: #fff;
 	margin: 0 auto 0px;
 	.siz();
-	padding: 40px 70px 40px 60px;
+	padding: 50px 70px 60px 60px;
 
 	.box-shadow(0 1px 2px rgba(0,0,0,0.2));
 	z-index: 2;
@@ -374,14 +376,14 @@ border-bottom: 1px solid #ffc7c0 - #111;
 	}
 
 	p {
-		font: 400 1.4em/150% @text;
+		font: 300 1.3em/1.6 @serif;
 		margin-bottom: 10px;
-		color: #999;
+		color: #aaa;
 	}
 }
 
 .infobox {
-	background: #ddd url(images/noise.png);
+	background: #eee url(images/noise.png);
 	border-bottom: solid 1px #eee;
 	border-left: solid 1px #eee;
 	border-right: solid 1px #eee;
